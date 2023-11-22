@@ -6,10 +6,10 @@
 class Eleicao
 {
     /* Variaveis */
-    /* -- HashMap de candidatos */
-    /* -- HashMap de partidos */
-    /* -- Lista de candidatos ordenada */
-    /* -- Lista de partidos ordenada */
+    map<int, Candidato *> candidatos;
+    map<int, Partido *> partidos;
+    vector<Candidato *> candidatos_ordenados;
+    vector<Candidato *> partidos_ordenados;
     /* -- Data da eleicao */
     
 public:

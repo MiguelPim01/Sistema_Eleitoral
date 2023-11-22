@@ -1,8 +1,17 @@
 #include "../headers/candidato.h"
 
-Candidato::Candidato()
+Candidato::Candidato(int cd_cargo, int cd_situacao_candidato_tot, int nr_candidato, string &nm_urna_candidato, Partido &p, int nr_federacao,
+                int cd_sit_tot_turno, int cd_genero, string &nm_tipo_destinacao_votos) : cd_cargo(cd_cargo), 
+                                                                                         cd_situacao_candidato_tot(cd_situacao_candidato_tot),
+                                                                                         nr_candidato(nr_candidato),
+                                                                                         nm_urna_candidato(nm_urna_candidato),
+                                                                                         p(&p),
+                                                                                         nr_federacao(nr_federacao),
+                                                                                         cd_sit_tot_turno(cd_sit_tot_turno),
+                                                                                         cd_genero(cd_genero),
+                                                                                         nm_tipo_destinacao_votos(nm_tipo_destinacao_votos)
 {
-
+    this->votos_nominais = 0;
 }
 
 int Candidato::get_cd_cargo()  const

@@ -2,8 +2,11 @@
 #define CANDIDATO_H
 
 #include <string>
+#include <chrono>
 
 #include "partido.h"
+
+class Partido;
 
 using namespace std;
 
@@ -16,14 +19,15 @@ class Candidato
     string nm_urna_candidato;
     Partido* p;
     int nr_federacao;
-    /* Data de Nascimento */
+    // data de nascimento
     int cd_sit_tot_turno;
     int cd_genero;
     string nm_tipo_destinacao_votos;
     int votos_nominais;
 
 public:
-    Candidato();
+    Candidato(int cd_cargo, int cd_situacao_candidato_tot, int nr_candidato, string &nm_urna_candidato, Partido &p, int nr_federacao,
+                int cd_sit_tot_turno, int cd_genero, string &nm_tipo_destinacao_votos);
     
     int get_cd_cargo()  const;
     int get_cd_situacao_cadidato_tot()  const;

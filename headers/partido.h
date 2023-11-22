@@ -3,11 +3,18 @@
 
 #include "candidato.h"
 
+#include <map>
+#include <vector>
+
+using namespace std;
+
+class Candidato;
+
 class Partido
 {
     /* Variaveis */
-    /* -- HashMap de candidatos */
-    /* -- Lista de candidatos */
+    map<int, Candidato *> candidatos;
+    vector<Candidato *> array_candidatos;
     int nr_partido;
     string sg_partido;
     int votos_nominais;
@@ -15,8 +22,10 @@ class Partido
     int qtd_cd_eleitos;
 
 public:
-    Partido();
+    Partido(int nr_partido, string &sg_partido);
 
+    map<int, Candidato *> get_candidatos() const;
+    vector<Candidato *> get_array_candidatos() const;
     int get_nr_partido() const;
     string get_sg_partido()  const;
     int get_votos_nominais()  const;
