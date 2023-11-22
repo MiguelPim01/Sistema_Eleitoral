@@ -1,7 +1,8 @@
 #include "../headers/candidato.h"
 
-Candidato::Candidato(int cd_cargo, int cd_situacao_candidato_tot, int nr_candidato, string &nm_urna_candidato, Partido &p, int nr_federacao,
-                int cd_sit_tot_turno, int cd_genero, string &nm_tipo_destinacao_votos) : cd_cargo(cd_cargo), 
+Candidato::Candidato(const int cd_cargo, const int cd_situacao_candidato_tot, const int nr_candidato, const string &nm_urna_candidato, Partido &p,
+                 const int nr_federacao, const int cd_sit_tot_turno, const int cd_genero, const string &nm_tipo_destinacao_votos) : 
+                                                                                         cd_cargo(cd_cargo), 
                                                                                          cd_situacao_candidato_tot(cd_situacao_candidato_tot),
                                                                                          nr_candidato(nr_candidato),
                                                                                          nm_urna_candidato(nm_urna_candidato),
@@ -72,6 +73,14 @@ void Candidato::inc_votos_nominais(int qtd_votos)
 bool Candidato::is_eleito(int cargo) const
 {
     return (this->cd_sit_tot_turno == 2 || this->cd_sit_tot_turno == 3 && this->cd_cargo == cargo) ? true : false;
+}
+
+bool Candidato::operator<(const Candidato &c) const
+{
+    if (this->votos_nominais == c.get_votos_nominais()) {
+        // comparar as datas de nascimento
+    }
+    return (this->votos_nominais < c.get_votos_nominais());
 }
 
 Candidato::~Candidato()

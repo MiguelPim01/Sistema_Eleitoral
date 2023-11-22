@@ -1,6 +1,7 @@
 #include "../headers/partido.h"
 
-Partido::Partido(int nr_partido, string &sg_partido) : nr_partido(nr_partido), sg_partido(sg_partido)
+Partido::Partido(const int nr_partido, const string &sg_partido) : nr_partido(nr_partido), sg_partido(sg_partido),
+                                                                    candidatos(*(new map<int, Candidato *>())), array_candidatos(*(new vector<Candidato *>()))
 {
     this->votos_nominais = 0;
     this->votos_de_legenda = 0;
@@ -24,7 +25,6 @@ void Partido::cria_lista_ordenada_candidatos()
     }
 
     std::sort(this->array_candidatos.begin(), this->array_candidatos.end());
-    // falta implementar a sobrecarga do operador< para os candidatos
 }
 
 void Partido::inc_votos_nominais(int qtd_votos)

@@ -26,8 +26,8 @@ class Candidato
     int votos_nominais;
 
 public:
-    Candidato(int cd_cargo, int cd_situacao_candidato_tot, int nr_candidato, string &nm_urna_candidato, Partido &p, int nr_federacao,
-                int cd_sit_tot_turno, int cd_genero, string &nm_tipo_destinacao_votos);
+    Candidato(const int cd_cargo, const int cd_situacao_candidato_tot, const int nr_candidato, const string &nm_urna_candidato, Partido &p,
+                 const int nr_federacao, const int cd_sit_tot_turno, const int cd_genero, const string &nm_tipo_destinacao_votos);
     
     int get_cd_cargo()  const;
     int get_cd_situacao_cadidato_tot()  const;
@@ -42,6 +42,8 @@ public:
 
     void inc_votos_nominais(int qtd_votos);
     bool is_eleito(int cargo) const;
+
+    bool operator<(const Candidato &c) const;
 
     ~Candidato();
 };
