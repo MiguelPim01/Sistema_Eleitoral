@@ -5,6 +5,7 @@
 
 #include <map>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -23,7 +24,18 @@ class Partido
 
 public:
     Partido(int nr_partido, string &sg_partido);
+    Candidato *cria_candidato(int cd_cargo, int cd_situacao_candidato_tot, int nr_candidato, string &nm_urna_candidato, int nr_federacao,
+                int cd_sit_tot_turno, int cd_genero, string &nm_tipo_destinacao_votos);
 
+    void cria_lista_ordenada_candidatos();
+    void inc_votos_nominais(int qtd_votos);
+    void inc_votos_de_legenda(int qtd_votos);
+    bool has_candidato(int key) const;
+
+    Candidato &get_candidato(int key) const;
+    Candidato &get_candidato_mais_votado() const;
+    Candidato &get_candidato_menos_votado() const;
+    int get_votos_totais() const;
     map<int, Candidato *> get_candidatos() const;
     vector<Candidato *> get_array_candidatos() const;
     int get_nr_partido() const;

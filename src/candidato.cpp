@@ -64,6 +64,16 @@ int Candidato::get_votos_nominais()  const
     return this->votos_nominais;
 }
 
+void Candidato::inc_votos_nominais(int qtd_votos)
+{
+    this->votos_nominais += qtd_votos;
+}
+
+bool Candidato::is_eleito(int cargo) const
+{
+    return (this->cd_sit_tot_turno == 2 || this->cd_sit_tot_turno == 3 && this->cd_cargo == cargo) ? true : false;
+}
+
 Candidato::~Candidato()
 {
     

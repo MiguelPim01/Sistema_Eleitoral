@@ -40,6 +40,9 @@ public:
     string get_nm_tipo_destinacao_votos()  const;
     int get_votos_nominais()  const;
 
+    void inc_votos_nominais(int qtd_votos);
+    bool is_eleito(int cargo) const;
+
     ~Candidato();
 };
 
