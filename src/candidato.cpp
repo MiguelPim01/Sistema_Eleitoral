@@ -30,7 +30,7 @@ int Candidato::get_nr_candidato()  const
     return this->nr_candidato;
 }
 
-string Candidato::get_nm_urna_candidato()  const
+const string &Candidato::get_nm_urna_candidato()  const
 {
     return this->nm_urna_candidato;
 }
@@ -55,7 +55,7 @@ int Candidato::get_cd_genero()  const
     return this->cd_genero;
 }
 
-string Candidato::get_nm_tipo_destinacao_votos()  const
+const string &Candidato::get_nm_tipo_destinacao_votos()  const
 {
     return this->nm_tipo_destinacao_votos;
 }
@@ -72,7 +72,7 @@ void Candidato::inc_votos_nominais(int qtd_votos)
 
 bool Candidato::is_eleito(int cargo) const
 {
-    return (this->cd_sit_tot_turno == 2 || this->cd_sit_tot_turno == 3 && this->cd_cargo == cargo) ? true : false;
+    return ((this->cd_sit_tot_turno == 2 || this->cd_sit_tot_turno == 3) && this->cd_cargo == cargo) ? true : false;
 }
 
 bool Candidato::operator<(const Candidato &c) const

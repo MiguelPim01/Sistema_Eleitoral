@@ -1,17 +1,48 @@
-all: ./objects/main.o ./objects/candidato.o ./objects/partido.o ./objects/eleicao.o
-	g++ -o main ./objects/main.o ./objects/candidato.o ./objects/partido.o ./objects/eleicao.o
+############
+# Exemplo de makefile
+# Prof. João Paulo A. Almeida
+# Programação OO
+#
+# A princípio, você não precisa alterar nada, mas aqui assume-se que o diretório atual
+# é o diretório onde estão os códigos fonte (.cpp).
+#
+# nome do compilador
+CPP = g++
+# opções de compilação
+CFLAGS = -Wall -g
+CPPFLAGS = -std=c++17
+# define lista de arquivos-fonte, assumindo que estão no diretório atual
+FONTES = $(wildcard ./src/*.cpp)
+# define lista dos arquivos-objeto usando nomes da lista de arquivos-fonte
+OBJETOS = $(FONTES:./src/%.cpp=./objects/%.o)
+# nome do arquivo executável
+EXECUTAVEL = deputados
+############ alvos
+#
+# use @ antes de todos os comandos, pois é necessário no script de teste
+#
+# alvo principal é o executável
 
-./objects/main.o: main.cpp ./headers/candidato.h ./headers/partido.h ./headers/eleicao.h
-	g++ -c -o ./objects/main.o main.cpp
+all: $(EXECUTAVEL)
 
-./objects/candidato.o: ./src/candidato.cpp ./headers/candidato.h
-	g++ -c -o ./objects/candidato.o ./src/candidato.cpp
+# para linkar o executável, precisamos dos arquivos-objetos
+$(EXECUTAVEL): $(OBJETOS) ./objects/main.o
+	@$(CPP) -o $@ $^
 
-./objects/partido.o: ./src/partido.cpp ./headers/partido.h
-	g++ -c -o ./objects/partido.o ./src/partido.cpp
+# alvo para cada arquivo-objeto depende do código fonte
+# (observação, aqui não estamos capturando as dependências de arquivos .h)
+./objects/%.o: ./src/%.cpp
+	@$(CPP) $(CPPFLAGS) -c -o $@ $(CFLAGS) $^
 
-./objects/eleicao.o: ./src/eleicao.cpp ./headers/eleicao.h
-	g++ -c -o ./objects/eleicao.o ./src/eleicao.cpp
+./objects/main.o: main.cpp $(FONTES)
+	@$(CPP) $(CPPFLAGS) -c -o $@ $(CFLAGS) $<
 
+# comandos para execução
+runfederal: $(EXECUTAVEL)
+	@./$(EXECUTAVEL) --federal candidatos.csv votacao.csv 02/10/2022
+runestadual: $(EXECUTAVEL)
+	@./$(EXECUTAVEL) --estadual candidatos.csv votacao.csv 02/10/2022
+
+# comando para limpeza
 clean:
-	rm -f main ./objects/*
+	@rm ./objects/*.o $(EXECUTAVEL) *.csv *.txt

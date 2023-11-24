@@ -1,7 +1,7 @@
 #include "../headers/partido.h"
 
 Partido::Partido(const int nr_partido, const string &sg_partido) : nr_partido(nr_partido), sg_partido(sg_partido),
-                                                                    candidatos(*(new map<int, Candidato *>())), array_candidatos(*(new vector<Candidato *>()))
+                                                                    candidatos(map<int, Candidato *>()), array_candidatos(vector<Candidato *>())
 {
     this->votos_nominais = 0;
     this->votos_de_legenda = 0;
@@ -11,8 +11,15 @@ Partido::Partido(const int nr_partido, const string &sg_partido) : nr_partido(nr
 Candidato *Partido::cria_candidato(int cd_cargo, int cd_situacao_candidato_tot, int nr_candidato, string &nm_urna_candidato, int nr_federacao,
                 int cd_sit_tot_turno, int cd_genero, string &nm_tipo_destinacao_votos)
 {
-    // dando erro no uso do new
+    Candidato *c = new Candidato(cd_cargo, cd_situacao_candidato_tot, nr_candidato, nm_urna_candidato, *this, nr_federacao,
+                cd_sit_tot_turno, cd_genero, nm_tipo_destinacao_votos);
     
+    if (c->is_eleito(cd_cargo)) {
+        this->qtd_cd_eleitos++;
+    }
+
+    this->candidatos.insert(pair<int, Candidato *>(nr_candidato, c));
+
     return nullptr;
 }
 
@@ -79,7 +86,7 @@ int Partido::get_nr_partido() const
     return this->nr_partido;
 }
 
-string Partido::get_sg_partido()  const
+const string &Partido::get_sg_partido()  const
 {
     return this->sg_partido;
 }

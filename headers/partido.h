@@ -39,7 +39,7 @@ public:
     map<int, Candidato *> get_candidatos() const;
     vector<Candidato *> get_array_candidatos() const;
     int get_nr_partido() const;
-    string get_sg_partido()  const;
+    const string &get_sg_partido()  const;
     int get_votos_nominais()  const;
     int get_votos_de_legenda()  const;
     int get_qtd_cd_eleitos()  const;

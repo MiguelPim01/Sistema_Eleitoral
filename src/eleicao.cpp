@@ -1,19 +1,19 @@
 #include "../headers/eleicao.h"
 
-Eleicao::Eleicao() : candidatos(*(new map<int, Candidato *>())), partidos(*(new map<int, Partido *>())),
-                        candidatos_ordenados(*(new vector<Candidato *>())), partidos_ordenados(*(new vector<Partido *>))
+Eleicao::Eleicao() : candidatos(map<int, Candidato *>()), partidos(map<int, Partido *>()),
+                        candidatos_ordenados(vector<Candidato *>()), partidos_ordenados(vector<Partido *>())
 {
 
 }
 
 void Eleicao::insere_candidato(int key, Candidato &c)
 {
-    this->candidatos.insert(std::make_pair(key, &c));
+    this->candidatos.insert(pair<int, Candidato *>(key, &c));
 }
 
 void Eleicao::insere_partido(int key, Partido &p)
 {
-    this->partidos.insert(std::make_pair(key, &p));
+    this->partidos.insert(pair<int, Partido *>(key, &p));
 }
 
 void Eleicao::ordena_lista_candidatos(int cargo)
