@@ -2,9 +2,6 @@
 #define CANDIDATO_H
 
 #include <string>
-#include <chrono>
-
-#include "partido.h"
 
 class Partido;
 

@@ -36,8 +36,8 @@ public:
     Candidato &get_candidato_mais_votado() const;
     Candidato &get_candidato_menos_votado() const;
     int get_votos_totais() const;
-    map<int, Candidato *> get_candidatos() const;
-    vector<Candidato *> get_array_candidatos() const;
+    const map<int, Candidato *> &get_candidatos() const;
+    const vector<Candidato *> &get_array_candidatos() const;
     int get_nr_partido() const;
     const string &get_sg_partido()  const;
     int get_votos_nominais()  const;

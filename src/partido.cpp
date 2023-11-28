@@ -1,7 +1,6 @@
 #include "../headers/partido.h"
 
-Partido::Partido(const int nr_partido, const string &sg_partido) : nr_partido(nr_partido), sg_partido(sg_partido),
-                                                                    candidatos(map<int, Candidato *>()), array_candidatos(vector<Candidato *>())
+Partido::Partido(const int nr_partido, const string &sg_partido) : nr_partido(nr_partido), sg_partido(sg_partido)
 {
     this->votos_nominais = 0;
     this->votos_de_legenda = 0;
@@ -71,12 +70,12 @@ int Partido::get_votos_totais() const
     return this->votos_nominais + this->votos_de_legenda;
 }
 
-map<int, Candidato *> Partido::get_candidatos() const
+const map<int, Candidato *> &Partido::get_candidatos() const
 {
     return this->candidatos;
 }
 
-vector<Candidato *> Partido::get_array_candidatos() const
+const vector<Candidato *> &Partido::get_array_candidatos() const
 {
     return this->array_candidatos;
 }

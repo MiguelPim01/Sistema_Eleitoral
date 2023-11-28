@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "headers/eleicao.h"
+#include "headers/input.h"
 
 #define FEDERAL 6
 #define ESTADUAL 7
@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
     Eleicao e;
 
     // fazer leitura do arquivo
+    read_arquivo_candidatos(arquivo_candidatos, e, flag_cargo, data_eleicao);
 
     // processar a saida
 

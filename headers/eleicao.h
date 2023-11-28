@@ -6,10 +6,10 @@
 class Eleicao
 {
     /* Variaveis */
-    map<int, Candidato *> candidatos;
-    map<int, Partido *> partidos;
-    vector<Candidato *> candidatos_ordenados;
-    vector<Partido *> partidos_ordenados;
+    map<int, Candidato> candidatos;
+    map<int, Partido> partidos;
+    vector<Candidato> candidatos_ordenados;
+    vector<Partido> partidos_ordenados;
     // data da eleicao
     
 public:
@@ -19,11 +19,13 @@ public:
     void insere_partido(int key, Partido &p);
     void ordena_lista_candidatos(int cargo);
 
-    map<int, Candidato *> get_candidatos() const;
-    map<int, Partido *> get_partidos() const;
-    vector<Candidato *> get_candidatos_ordenados() const;
-    vector<Partido *> get_partidos_ordenados() const;
-    Partido &get_partido(int key) const;
+    const map<int, Candidato> &get_candidatos() const;
+    const map<int, Partido> &get_partidos() const;
+    const vector<Candidato> &get_candidatos_ordenados() const;
+    const vector<Partido> &get_partidos_ordenados() const;
+    const Partido &get_partido(int key) const;
+
+    bool has_partido(int key) const;
 
     ~Eleicao();
 };

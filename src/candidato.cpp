@@ -72,7 +72,7 @@ void Candidato::inc_votos_nominais(int qtd_votos)
 
 bool Candidato::is_eleito(int cargo) const
 {
-    return ((this->cd_sit_tot_turno == 2 || this->cd_sit_tot_turno == 3) && this->cd_cargo == cargo) ? true : false;
+    return ((this->cd_sit_tot_turno == 2 || this->cd_sit_tot_turno == 3) && this->cd_cargo == cargo);
 }
 
 bool Candidato::operator<(const Candidato &c) const
