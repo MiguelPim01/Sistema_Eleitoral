@@ -1,4 +1,5 @@
 #include "../headers/eleicao.h"
+#include "eleicao.h"
 
 Eleicao::Eleicao()
 {
@@ -48,6 +49,11 @@ const Partido &Eleicao::get_partido(int key) const
 {
     return this->partidos.at(key);
 } // pode dar problema pois temos que usar funções nao constantes em partido
+
+const Candidato &Eleicao::get_candidato(int key) const
+{
+    return this->candidatos.at(key);
+}
 
 bool Eleicao::has_partido(int key) const
 {

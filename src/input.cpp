@@ -45,10 +45,12 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
     string info;
     vector<string> line_vector;
 
-    int cd_cargo, cd_situacao_candidato_tot, nr_partido, nr_candidato, nr_federacao, sit_tot_turno, cd_genero;
+    int cd_cargo, cd_situacao_candidato_tot, nr_partido, nr_candidato, nr_federacao, cd_sit_tot_turno, cd_genero;
     string nm_tipo_destinacao_votos, sg_partido, nm_urna_candidato;
 
     bool flag_read_line;
+
+    Partido p;
 
     getline(file, linha); // ignorando a primeira linha do arquivo
     
@@ -81,7 +83,20 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
         }
 
         if (flag_read_line) {
-            // le a linha
+            
+            nr_candidato = stoi(line_vector[POS_NR_CANDIDATO]);
+            nm_urna_candidato = line_vector[POS_NM_URNA_CANDIDATO];
+            nr_federacao = stoi(line_vector[POS_NR_FEDERACAO]);
+            cd_sit_tot_turno = stoi(line_vector[POS_SIT_TOT_TURNO]);
+            cd_genero = stoi(line_vector[POS_CD_GENERO]);
+
+            Candidato c(cd_cargo, cd_situacao_candidato_tot, nr_candidato, nm_urna_candidato, p,
+                 nr_federacao, cd_sit_tot_turno, cd_genero, nm_tipo_destinacao_votos);
+
+            e.insere_candidato(nr_candidato, c);
+            // p.add_candidato(e.get_candidato(nr_candidato), flag_cargo);
+
+            // dando problema por que retorno de eleicao é (const Candidato &)
         }
     }
 

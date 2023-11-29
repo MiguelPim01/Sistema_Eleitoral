@@ -24,6 +24,7 @@ public:
     const vector<Candidato> &get_candidatos_ordenados() const;
     const vector<Partido> &get_partidos_ordenados() const;
     const Partido &get_partido(int key) const;
+    const Candidato &get_candidato(int key) const;
 
     bool has_partido(int key) const;
 
