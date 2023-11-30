@@ -45,12 +45,12 @@ const vector<Partido> &Eleicao::get_partidos_ordenados() const
     return this->partidos_ordenados;
 }
 
-const Partido &Eleicao::get_partido(int key) const
+Partido &Eleicao::get_partido(int key)
 {
     return this->partidos.at(key);
-} // pode dar problema pois temos que usar funções nao constantes em partido
+}
 
-const Candidato &Eleicao::get_candidato(int key) const
+Candidato &Eleicao::get_candidato(int key)
 {
     return this->candidatos.at(key);
 }

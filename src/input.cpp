@@ -50,8 +50,6 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
 
     bool flag_read_line;
 
-    Partido p;
-
     getline(file, linha); // ignorando a primeira linha do arquivo
     
     while (getline(file, linha)) {
@@ -74,13 +72,11 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
         nr_partido = stoi(line_vector[POS_NR_PARTIDO]);
         sg_partido = stoi(line_vector[POS_SG_PARTIDO]);
 
-        if (e.has_partido(nr_partido)) {
-            Partido p = e.get_partido(nr_partido);
+        if (!e.has_partido(nr_partido)) {
+            Partido part(nr_partido, sg_partido);
+            e.insere_partido(nr_partido, part);
         }
-        else {
-            Partido p(nr_partido, sg_partido);
-            e.insere_partido(nr_partido, p);
-        }
+        Partido &p = e.get_partido(nr_partido); // pegando referencia de partido que está em eleicao
 
         if (flag_read_line) {
             
@@ -94,9 +90,7 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
                  nr_federacao, cd_sit_tot_turno, cd_genero, nm_tipo_destinacao_votos);
 
             e.insere_candidato(nr_candidato, c);
-            // p.add_candidato(e.get_candidato(nr_candidato), flag_cargo);
-
-            // dando problema por que retorno de eleicao é (const Candidato &)
+            p.add_candidato(c, flag_cargo);
         }
     }
 

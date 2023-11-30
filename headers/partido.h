@@ -25,8 +25,6 @@ class Partido
 public:
     Partido();
     Partido(const int nr_partido, const string &sg_partido);
-    // Candidato &cria_candidato(int cd_cargo, int cd_situacao_candidato_tot, int nr_candidato, string &nm_urna_candidato, int nr_federacao,
-    //                             int cd_sit_tot_turno, int cd_genero, string &nm_tipo_destinacao_votos);
 
     void add_candidato(Candidato &c, int cargo);
 

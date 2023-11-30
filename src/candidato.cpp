@@ -35,7 +35,7 @@ const string &Candidato::get_nm_urna_candidato()  const
     return this->nm_urna_candidato;
 }
 
-Partido& Candidato::get_partido()  const
+Partido &Candidato::get_partido()
 {
     return *(this->p);
 }

@@ -22,21 +22,6 @@ void Partido::add_candidato(Candidato &c, int cargo)
     this->candidatos.insert(pair<int, Candidato *>(c.get_nr_candidato(), &c));
 }
 
-// Candidato &Partido::cria_candidato(int cd_cargo, int cd_situacao_candidato_tot, int nr_candidato, string &nm_urna_candidato, int nr_federacao,
-//                 int cd_sit_tot_turno, int cd_genero, string &nm_tipo_destinacao_votos)
-// {
-//     Candidato *c = new Candidato(cd_cargo, cd_situacao_candidato_tot, nr_candidato, nm_urna_candidato, *this, nr_federacao,
-//                 cd_sit_tot_turno, cd_genero, nm_tipo_destinacao_votos);
-    
-//     if (c->is_eleito(cd_cargo)) {
-//         this->qtd_cd_eleitos++;
-//     }
-
-//     this->candidatos.insert(pair<int, Candidato *>(nr_candidato, c));
-
-//     return *c;
-// }
-
 void Partido::cria_lista_ordenada_candidatos()
 {
     for (std::map<int, Candidato *>::iterator it = this->candidatos.begin(); it != this->candidatos.end(); it++) {
