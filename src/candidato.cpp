@@ -78,7 +78,7 @@ bool Candidato::is_eleito(int cargo) const
 bool Candidato::operator<(const Candidato &c) const
 {
     if (this->votos_nominais == c.get_votos_nominais()) {
-        // comparar as datas de nascimento
+        // comparar as datas de nascimento (devem ser comparadas na força bruta com o tipo string)
     }
     return (this->votos_nominais < c.get_votos_nominais());
 }

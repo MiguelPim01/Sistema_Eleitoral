@@ -77,7 +77,7 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
         vector<string> line_vector;
 
         int cd_cargo, cd_situacao_candidato_tot, nr_partido, nr_candidato, nr_federacao, cd_sit_tot_turno, cd_genero;
-        string nm_tipo_destinacao_votos, sg_partido, nm_urna_candidato;
+        string nm_tipo_destinacao_votos, sg_partido, nm_urna_candidato, data_nascimento;
 
         bool flag_read_line;
 
@@ -118,6 +118,7 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
                 nr_federacao = stoi(line_vector[POS_NR_FEDERACAO]);
                 cd_sit_tot_turno = stoi(line_vector[POS_SIT_TOT_TURNO]);
                 cd_genero = stoi(line_vector[POS_CD_GENERO]);
+                data_nascimento = iso_8859_1_to_utf8(line_vector[POS_DT_NASCIMENTO]);
 
                 Candidato c(cd_cargo, cd_situacao_candidato_tot, nr_candidato, nm_urna_candidato, p,
                     nr_federacao, cd_sit_tot_turno, cd_genero, nm_tipo_destinacao_votos);

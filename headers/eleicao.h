@@ -10,7 +10,6 @@ class Eleicao
     map<int, Partido> partidos;
     vector<Candidato> candidatos_ordenados;
     vector<Partido> partidos_ordenados;
-    // data da eleicao
     
 public:
     Eleicao();

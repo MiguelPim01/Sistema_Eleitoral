@@ -16,7 +16,6 @@ class Candidato
     string nm_urna_candidato;
     Partido* p;
     int nr_federacao;
-    // data de nascimento
     int cd_sit_tot_turno;
     int cd_genero;
     string nm_tipo_destinacao_votos;
