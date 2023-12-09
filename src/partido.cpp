@@ -1,5 +1,4 @@
 #include "../headers/partido.h"
-#include "partido.h"
 
 Partido::Partido()
 {

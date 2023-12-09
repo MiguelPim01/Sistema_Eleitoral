@@ -1,5 +1,4 @@
 #include "../headers/eleicao.h"
-#include "eleicao.h"
 
 Eleicao::Eleicao()
 {
@@ -58,6 +57,11 @@ Candidato &Eleicao::get_candidato(int key)
 bool Eleicao::has_partido(int key) const
 {
     return (this->partidos.find(key) != this->partidos.end());
+}
+
+bool Eleicao::has_candidato(int key) const
+{
+    return (this->candidatos.find(key) != this->candidatos.end());
 }
 
 Eleicao::~Eleicao()

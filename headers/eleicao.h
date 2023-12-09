@@ -28,6 +28,7 @@ public:
     Candidato &get_candidato(int key);
 
     bool has_partido(int key) const;
+    bool has_candidato(int key) const;
 
     ~Eleicao();
 };
