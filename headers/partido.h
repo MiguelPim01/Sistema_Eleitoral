@@ -46,8 +46,17 @@ public:
     int get_qtd_cd_eleitos()  const;
     const string toString();
 
+    friend ostream &operator<<(const ostream &os, const Partido &p);
+
     ~Partido();
 };
+
+ostream &operator<<(ostream &os, const Partido &p)
+{
+    os << p.get_sg_partido() << " - " << p.get_nr_partido(); // vai printar apenas, por exemplo: PSDB - 45
+
+    return os;
+}
 
 
 #endif // PARTIDO_H

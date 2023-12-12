@@ -107,9 +107,67 @@ bool Candidato::is_eleito(int cargo) const
 bool Candidato::operator<(const Candidato &c) const
 {
     if (this->votos_nominais == c.get_votos_nominais()) {
-        // comparar as datas de nascimento (devem ser comparadas na força bruta com o tipo string)
+        return this->is_mais_velho(c);
     } 
     return (this->votos_nominais < c.get_votos_nominais());
+}
+
+bool Candidato::is_mais_velho(const Candidato &c) const
+{
+    int dia_nasc_1 = stoi(this->get_data_nascimento().substr(0,2));
+    int mes_nasc_1 = stoi(this->get_data_nascimento().substr(3,5));
+    int ano_nasc_1 = stoi(this->get_data_nascimento().substr(6,10));
+
+    int dia_nasc_2 = stoi(c.get_data_nascimento().substr(0,2));
+    int mes_nasc_2 = stoi(c.get_data_nascimento().substr(3,5));
+    int ano_nasc_2 = stoi(c.get_data_nascimento().substr(6,10));
+
+    if (ano_nasc_1 == ano_nasc_2) {
+        if (mes_nasc_1 == mes_nasc_2) {
+            return dia_nasc_1 < dia_nasc_2;
+        }
+        return mes_nasc_1 < mes_nasc_2;
+    }
+    return ano_nasc_1 < ano_nasc_2;
+}
+
+int Candidato::compara_idades(const Candidato &c) const
+{
+    int dia_nasc_1 = stoi(this->get_data_nascimento().substr(0,2));
+    int mes_nasc_1 = stoi(this->get_data_nascimento().substr(3,5));
+    int ano_nasc_1 = stoi(this->get_data_nascimento().substr(6,10));
+
+    int dia_nasc_2 = stoi(c.get_data_nascimento().substr(0,2));
+    int mes_nasc_2 = stoi(c.get_data_nascimento().substr(3,5));
+    int ano_nasc_2 = stoi(c.get_data_nascimento().substr(6,10));
+
+    if (ano_nasc_1 == ano_nasc_2) {
+        if (mes_nasc_1 == mes_nasc_2) {
+            return dia_nasc_2 - dia_nasc_1;
+        }
+        return mes_nasc_2 - mes_nasc_1;
+    }
+    return ano_nasc_2 - ano_nasc_1;
+}
+
+ostream &operator<<(ostream &os, const Candidato &c)
+{
+    if (c.get_nr_federacao() == -1) {
+        os << c.get_nm_urna_candidato();
+    }
+    else {
+        os << "*" << c.get_nm_urna_candidato();
+    }
+
+    return os;
+}
+
+int compara_candidatos(const Candidato *c1, const Candidato *c2)
+{
+    if (c1->votos_nominais == c2->votos_nominais) {
+        return c1->compara_idades(*c2);
+    }
+    return c1->votos_nominais - c2->votos_nominais;
 }
 
 Candidato::~Candidato()

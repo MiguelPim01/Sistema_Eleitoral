@@ -3,7 +3,8 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <string> 
+#include <string>
+#include <algorithm>
 
 
 Partido::Partido()
@@ -35,7 +36,10 @@ void Partido::cria_lista_ordenada_candidatos()
         }
     }
 
-    //std::sort(this->array_candidatos.begin(), this->array_candidatos.end());
+    sort(this->array_candidatos.begin(), this->array_candidatos.end(), [](const Candidato *c1, const Candidato *c2)
+                                                                            {
+                                                                                return *c1 < *c2;
+                                                                            });
 }
 
 void Partido::inc_votos_nominais(int qtd_votos)
@@ -50,7 +54,7 @@ void Partido::inc_votos_de_legenda(int qtd_votos)
 
 bool Partido::has_candidato(int key) const
 {
-    return (this->candidatos.find(key) != this->candidatos.end()) ? true : false;
+    return (this->candidatos.find(key) != this->candidatos.end());
 }
 
 Candidato &Partido::get_candidato(int key) const

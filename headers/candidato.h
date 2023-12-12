@@ -37,6 +37,8 @@ public:
     int get_votos_nominais()  const;
     const string &get_data_nascimento() const;
     int get_idade(const string& data_eleicao) const;
+    bool Candidato::is_mais_velho(const Candidato &c) const;
+    int Candidato::compara_idades(const Candidato &c) const;
 
     Partido& get_partido();
 
@@ -44,6 +46,9 @@ public:
     bool is_eleito(int cargo) const;
 
     bool operator<(const Candidato &c) const;
+
+    friend ostream &operator<<(ostream &os, const Candidato &c);
+    friend int compara_candidatos(const Candidato *c1, const Candidato *c2);
 
     ~Candidato();
 };

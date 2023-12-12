@@ -1,5 +1,7 @@
 #include "../headers/eleicao.h"
 
+#include <algorithm>
+
 Eleicao::Eleicao()
 {
 
@@ -21,7 +23,7 @@ void Eleicao::ordena_lista_candidatos(int cargo)
         this->candidatos_ordenados.push_back(it->second);
     }
 
-    //sort(this->candidatos_ordenados.begin(), this->candidatos_ordenados.end());
+    sort(this->candidatos_ordenados.begin(), this->candidatos_ordenados.end());
 }
 
 void Eleicao::inserindo_na_lista_partidos(){

@@ -14,48 +14,28 @@ void output_saidas(Eleicao &e, const string &data_eleicao, int flag_cargo)
     //==============================================
 
     //==================== LISTAS (COPIAS TAMBÉM) ==========================
-    vector<Candidato> lista_candidatos_eleitos = retorna_lista_candidatos_eleitos(e,flag_cargo);
     vector<Candidato> lista_candidatos = e.get_candidatos_ordenados();
-    vector<Candidato> lista_candidatos_nao_eleitos = retorna_lista_candidatos_nao_eleitos(e,flag_cargo);
-    vector<Partido> lista_partidos = e.get_partidos_ordenados();
-
-    // int x =1;
-    // for (auto &p : lista_partidos){
-    //     p.get_candidato_mais_votado();
-    //     cout << x << " -- " << p.get_candidato_mais_votado().get_votos_nominais()  << endl;
-    //     x++;
-    // }
-    
+    vector<Candidato> lista_candidatos_eleitos = create_lista_candidatos_eleitos(e,flag_cargo);
+    vector<Candidato> lista_candidatos_nao_eleitos = create_lista_candidatos_nao_eleitos(e,flag_cargo);
+    vector<Partido> lista_partidos = e.get_partidos_ordenados(); 
 
     //============================ ORDENANDO LISTAS ====================================== //
-    //ordenando lista de partidos
-    // sort(lista_partidos.begin(),lista_partidos.end(),[data_eleicao] (const Partido& a, const Partido& b) {
-    //     if (a.get_votos_totais() == b.get_votos_totais()){
-            
-    //         return a.get_nr_partido() - b.get_nr_partido();
-    //     }
-    //     return b.get_votos_totais() - a.get_votos_totais();
-    // });
+    // ordenando lista de partidos
+    std::sort(lista_partidos.begin(),lista_partidos.end(),[data_eleicao] (const Partido& a, const Partido& b) 
+                                                        {
+                                                            if (a.get_votos_totais() == b.get_votos_totais()){
+                                                                
+                                                                return a.get_nr_partido() - b.get_nr_partido();
+                                                            }
+                                                            return b.get_votos_totais() - a.get_votos_totais();
+                                                        }
+    );
 
-    //ordenando a lista de candidados 
-    sort(lista_candidatos.begin(),lista_candidatos.end(),[data_eleicao] (const Candidato& a, const Candidato& b) {
-        if (a.get_votos_nominais() == b.get_votos_nominais()){
-            int idadeA = a.get_idade(data_eleicao);
-            int idadeB = b.get_idade(data_eleicao);
-            return idadeA < idadeB;
-        }
-        return a.get_votos_nominais() > b.get_votos_nominais();
-    });
+    // ordenando a lista de candidados 
+    std::sort(lista_candidatos.begin(), lista_candidatos.end());
     
-    //ordenando a lista de candidados eleitos
-    sort(lista_candidatos_eleitos.begin(),lista_candidatos_eleitos.end(),[data_eleicao] (const Candidato& a, const Candidato& b) {
-        if (a.get_votos_nominais() == b.get_votos_nominais()){
-            int idadeA = a.get_idade(data_eleicao);
-            int idadeB = b.get_idade(data_eleicao);
-            return idadeA < idadeB;
-        }
-        return a.get_votos_nominais() > b.get_votos_nominais();
-    });
+    // ordenando a lista de candidados eleitos
+    std::sort(lista_candidatos_eleitos.begin(), lista_candidatos_eleitos.end());
     //=================================================================================== //    
     
     // numero_eleitos(lista_candidatos_eleitos); //numeros de candidados eleitos
@@ -87,35 +67,44 @@ void votos_totais(vector<Partido> lista_partidos){
     int tam = lista_partidos.size();
     cout << lista_partidos.size() << endl;
 
-    for (int i = 0; i < tam; i++){
-        cout << i+1 << " - " + lista_partidos[i].toString();
-    }
-
-
+    // essa função devera ser feita da forma antiga com todas as condições dentro dela, pois o toString de partido foi consertado
 }
 
 void candidatos_eleitos_no_sistema_proporcional(int num_vagas, vector<Candidato> lista_candidatos_eleitos, vector<Candidato> lista_candidatos){
-    cout << "Eleitos, que se beneficiaram do sistema proporcional:\n" << "(com sua posição no ranking de mais votados)" << endl;
+    cout << "Eleitos, que se beneficiaram do sistema proporcional:" << endl;
+    cout << "(com sua posição no ranking de mais votados)" << endl;
 
     int votos_ultimo_candidato = lista_candidatos[num_vagas-1].get_votos_nominais();
 
-    for (auto &c : lista_candidatos_eleitos){
-        int id = 1 + retorna_posicao_candidato(lista_candidatos,c);
-        if (c.get_votos_nominais() < votos_ultimo_candidato){
-            int id = 1 + retorna_posicao_candidato(lista_candidatos,c);
-            string str = (c.get_nr_federacao() == -1) ? c.get_nm_urna_candidato() : "*" + c.get_nm_urna_candidato();
-            cout << id << " - " << str << " (" << c.get_partido().get_sg_partido() << ", " << c.get_votos_nominais() << " votos)\n";
+    int id;
+
+    for (vector<Candidato>::iterator it; it < lista_candidatos_eleitos.end(); it++) {
+        if ((*it).get_votos_nominais() < votos_ultimo_candidato) {
+            id = 1 + get_posicao_candidato(lista_candidatos, *it);
+            cout << id << " - " << (*it) << " (" << (*it).get_partido().get_sg_partido() << ", " << (*it).get_votos_nominais() << " votos)" << endl;
         }
     }
+
+    // for (auto &c : lista_candidatos_eleitos){
+    //     int id = 1 + get_posicao_candidato(lista_candidatos,c);
+
+    //     if (c.get_votos_nominais() < votos_ultimo_candidato){
+
+    //         int id = 1 + get_posicao_candidato(lista_candidatos,c);
+    //         string str = (c.get_nr_federacao() == -1) ? c.get_nm_urna_candidato() : "*" + c.get_nm_urna_candidato();
+    //         cout << id << " - " << str << " (" << c.get_partido().get_sg_partido() << ", " << c.get_votos_nominais() << " votos)\n";
+    //     }
+    // }
     
     cout << endl;
 }
 
 void candidados_nao_eleitos(int num_vagas, vector<Candidato> lista, vector<Candidato> lista_candidatos) {
-    cout << "Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n"<< "(com sua posição no ranking de mais votados)" << endl;
+    cout << "Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:" << endl;
+    cout << "(com sua posição no ranking de mais votados)" << endl;
     
     int votos_ultimo_candidato = lista_candidatos[num_vagas-1].get_votos_nominais();
-    //cout << votos_ultimo_candidato << endl;
+    
     int index = 0;
     for (auto &c : lista){
 
@@ -124,9 +113,8 @@ void candidados_nao_eleitos(int num_vagas, vector<Candidato> lista, vector<Candi
         
         if (c.get_votos_nominais() <= lista[index].get_votos_nominais()){
             
-             int id = 1 + retorna_posicao_candidato(lista_candidatos,c);
-            string str = (c.get_nr_federacao() == -1) ? c.get_nm_urna_candidato() : "*" + c.get_nm_urna_candidato();
-        cout << id << " - " << str << " (" << c.get_partido().get_sg_partido() << ", " << c.get_votos_nominais() << " votos)\n";
+            int id = 1 + get_posicao_candidato(lista_candidatos,c);
+            cout << id << " - " << c << " (" << c.get_partido().get_sg_partido() << ", " << c.get_votos_nominais() << " votos)\n";
 
             index++;
         }
@@ -151,7 +139,7 @@ void candidatos_mais_votados(int num_vagas, vector<Candidato> lista){
     cout << endl;
 }
 
-void candidatos_eleitos(vector<Candidato> lista, int flag_cargo){
+void candidatos_eleitos(vector<Candidato> lista, int flag_cargo) {
     //usamos enum nesse caso 
     string str = (flag_cargo == 6) ? "Deputados federais eleitos:" : "Deputados estaduais eleitos:";
     //1 - SERGIO MENEGUELLI (REPUBLICANOS, 138.523 votos) 
@@ -168,25 +156,20 @@ void candidatos_eleitos(vector<Candidato> lista, int flag_cargo){
 }
 
 void numero_eleitos(vector<Candidato> lista){
-    cout << "Número de vagas: " << lista.size() << "\n" << endl;
-    
+    cout << "Número de vagas: " << lista.size() << "\n" << endl; 
 }
 
 //retornando a posição do candidato na lista de candidatos
-const int retorna_posicao_candidato(vector<Candidato> lista, Candidato cand){
-    int index = 0;
+const int get_posicao_candidato(vector<Candidato> lista, Candidato cand) {
 
-    for (auto &c : lista){
-        if (c.get_nr_candidato() == cand.get_nr_candidato()){
-            return index;
-        }
-        index++;
-    }
+    int index = distance(lista.begin(), find(lista.begin(), lista.end(), cand));
+
     return index;
 }
 
-const vector<Candidato> retorna_lista_candidatos_eleitos(Eleicao &e, int flag_cargo){
+const vector<Candidato> create_lista_candidatos_eleitos(Eleicao &e, int flag_cargo){
     vector<Candidato> aux;
+
     for (auto &c : e.get_candidatos_ordenados()){
         if (c.is_eleito(flag_cargo)){
             aux.push_back(c);
@@ -195,8 +178,9 @@ const vector<Candidato> retorna_lista_candidatos_eleitos(Eleicao &e, int flag_ca
     return aux;
 }
 
-const vector<Candidato> retorna_lista_candidatos_nao_eleitos(Eleicao &e, int flag_cargo){
+const vector<Candidato> create_lista_candidatos_nao_eleitos(Eleicao &e, int flag_cargo){
     vector<Candidato> aux;
+
     for (auto &c : e.get_candidatos_ordenados()){
         if (!c.is_eleito(flag_cargo)){
             aux.insert(aux.begin(),c); // inserindo do começo
@@ -204,5 +188,3 @@ const vector<Candidato> retorna_lista_candidatos_nao_eleitos(Eleicao &e, int fla
     }
     return aux;
 }
-
-
