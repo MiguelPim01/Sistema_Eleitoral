@@ -1,0 +1,99 @@
+Número de vagas: 8
+
+Deputados federais eleitos:
+1 - SOCORRO NERI (PP, 25.842 votos)
+2 - MEIRE SERAFIM (UNIÃO, 21.285 votos)
+3 - CORONEL ULYSSES (UNIÃO, 21.075 votos)
+4 - ZEZINHO BARBARY (PP, 19.958 votos)
+5 - GERLEN DINIZ (PP, 19.560 votos)
+6 - DR EDUARDO VELLOSO (UNIÃO, 16.786 votos)
+7 - ANTÔNIA LUCIA (REPUBLICANOS, 16.280 votos)
+8 - ROBERTO DUARTE (REPUBLICANOS, 14.522 votos)
+
+Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):
+1 - SOCORRO NERI (PP, 25.842 votos)
+2 - MEIRE SERAFIM (UNIÃO, 21.285 votos)
+3 - CORONEL ULYSSES (UNIÃO, 21.075 votos)
+4 - JESSICA SALES (MDB, 20.500 votos)
+5 - ZEZINHO BARBARY (PP, 19.958 votos)
+6 - GERLEN DINIZ (PP, 19.560 votos)
+7 - *MINORU KINPARA (PSDB, 19.077 votos)
+8 - DR EDUARDO VELLOSO (UNIÃO, 16.786 votos)
+
+Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:
+(com sua posição no ranking de mais votados)
+4 - JESSICA SALES (MDB, 20.500 votos)
+7 - *MINORU KINPARA (PSDB, 19.077 votos)
+
+Eleitos, que se beneficiaram do sistema proporcional:
+(com sua posição no ranking de mais votados)
+9 - ANTÔNIA LUCIA (REPUBLICANOS, 16.280 votos)
+11 - ROBERTO DUARTE (REPUBLICANOS, 14.522 votos)
+
+Votação dos partidos e número de candidatos eleitos:
+1 - PP - 11, 93.602 votos (91.304 nominais e 2.298 de legenda), 3 candidatos eleitos
+2 - UNIÃO - 44, 84.939 votos (83.195 nominais e 1.744 de legenda), 3 candidatos eleitos
+3 - REPUBLICANOS - 10, 59.017 votos (57.575 nominais e 1.442 de legenda), 2 candidatos eleitos
+4 - MDB - 15, 39.012 votos (37.923 nominais e 1.089 de legenda), 0 candidato eleito
+5 - PSDB - 45, 33.412 votos (32.696 nominais e 716 de legenda), 0 candidato eleito
+6 - PSD - 55, 24.158 votos (23.485 nominais e 673 de legenda), 0 candidato eleito
+7 - PDT - 12, 21.856 votos (19.583 nominais e 2.273 de legenda), 0 candidato eleito
+8 - PODE - 19, 21.069 votos (20.239 nominais e 830 de legenda), 0 candidato eleito
+9 - PT - 13, 20.487 votos (18.602 nominais e 1.885 de legenda), 0 candidato eleito
+10 - PC do B - 65, 15.467 votos (15.054 nominais e 413 de legenda), 0 candidato eleito
+11 - PSB - 40, 6.321 votos (5.816 nominais e 505 de legenda), 0 candidato eleito
+12 - SOLIDARIEDADE - 77, 4.347 votos (3.985 nominais e 362 de legenda), 0 candidato eleito
+13 - REDE - 18, 3.016 votos (2.901 nominais e 115 de legenda), 0 candidato eleito
+14 - PV - 43, 2.092 votos (2.030 nominais e 62 de legenda), 0 candidato eleito
+15 - PATRIOTA - 51, 1.483 votos (1.151 nominais e 332 de legenda), 0 candidato eleito
+16 - PROS - 90, 1.369 votos (925 nominais e 444 de legenda), 0 candidato eleito
+17 - PSOL - 50, 905 votos (802 nominais e 103 de legenda), 0 candidato eleito
+18 - PSC - 20, 704 votos (680 nominais e 24 de legenda), 0 candidato eleito
+19 - CIDADANIA - 23, 491 votos (392 nominais e 99 de legenda), 0 candidato eleito
+20 - AGIR - 36, 323 votos (292 nominais e 31 de legenda), 0 candidato eleito
+21 - PMN - 33, 183 votos (119 nominais e 64 de legenda), 0 candidato eleito
+22 - PCO - 29, 3 votos (0 nominal e 3 de legenda), 0 candidato eleito
+23 - PTB - 14, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+24 - PL - 22, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+25 - DC - 27, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+26 - PRTB - 28, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+27 - AVANTE - 70, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+
+Primeiro e último colocados de cada partido:
+1 - PP - 11, SOCORRO NERI (1101, 25.842 votos) / GIL TEIXEIRA (1177, 647 votos)
+2 - UNIÃO - 44, MEIRE SERAFIM (4455, 21.285 votos) / LUIZ ANUTE (4401, 1.332 votos)
+3 - MDB - 15, JESSICA SALES (1515, 20.500 votos) / ALDA RADINE (1507, 32 votos)
+4 - PSDB - 45, MINORU KINPARA (4500, 19.077 votos) / MARCIA MARIA (4515, 253 votos)
+5 - REPUBLICANOS - 10, ANTÔNIA LUCIA (1000, 16.280 votos) / KATIANNY ARAÚJO (1023, 90 votos)
+6 - PC do B - 65, PERPETUA ALMEIDA (6513, 14.914 votos) / ZÉ DA ROSA (6565, 140 votos)
+7 - PT - 13, LEO DE BRITO (1331, 12.304 votos) / IRENÍ UCHÔA (1314, 464 votos)
+8 - PDT - 12, JESUS SÉRGIO (1212, 9.536 votos) / RÔ DA BASE (1200, 165 votos)
+9 - PSD - 55, JESUITA ARRUDA (5522, 6.148 votos) / MOISES MEDEIROS (5500, 933 votos)
+10 - PODE - 19, RODRIGO DAMASCENO (1919, 5.919 votos) / ISRAEL AQUILA (1991, 372 votos)
+11 - PSB - 40, DR THOR DANTAS (4040, 3.424 votos) / KELLY CRISTINA  (4088, 245 votos)
+12 - REDE - 18, NINAWA HUNI KUI (1818, 2.794 votos) / IUNA CHAVES (1800, 107 votos)
+13 - PV - 43, CLAUDIO EZEQUIEL (4343, 1.941 votos) / PROTETORA MAURA AKINO (4333, 89 votos)
+14 - SOLIDARIEDADE - 77, JANES PETECA (7789, 1.636 votos) / EDI CELULAR (7788, 120 votos)
+15 - PATRIOTA - 51, PASTOR ANTÔNIO JOSÉ (5188, 595 votos) / NAZARE PEIXOTO (5115, 21 votos)
+16 - PSC - 20, SGT CARLOS TANACA (2000, 327 votos) / LUANA ARAÚJO (2022, 107 votos)
+17 - CIDADANIA - 23, CARLOS LEANDRO (2345, 273 votos) / PASTORA ODETE (2323, 119 votos)
+18 - PROS - 90, ROBERTO DA PRINCEZINHA (9090, 230 votos) / EDNA NANTES (9044, 22 votos)
+19 - PSOL - 50, WILLIAM FRANÇA (5012, 217 votos) / CRISTINA CARUTA (5022, 114 votos)
+20 - AGIR - 36, SARAIVA GAMA (3663, 105 votos) / SORAIA RAMALHO (3628, 13 votos)
+21 - PMN - 33, ANTONIO DANTAS (3344, 50 votos) / ROZANA SOUSA (3355, 29 votos)
+
+Eleitos, por faixa etária (na data da eleição):
+      Idade < 30: 0 (0,00%)
+30 <= Idade < 40: 0 (0,00%)
+40 <= Idade < 50: 5 (62,50%)
+50 <= Idade < 60: 3 (37,50%)
+60 <= Idade     : 0 (0,00%)
+
+Eleitos, por gênero:
+Feminino:  3 (37,50%)
+Masculino: 5 (62,50%)
+
+Total de votos válidos:    434.256
+Total de votos nominais:   418.749 (96,43%)
+Total de votos de legenda: 15.507 (3,57%)
+

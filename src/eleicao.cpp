@@ -21,7 +21,13 @@ void Eleicao::ordena_lista_candidatos(int cargo)
         this->candidatos_ordenados.push_back(it->second);
     }
 
-    sort(this->candidatos_ordenados.begin(), this->candidatos_ordenados.end());
+    //sort(this->candidatos_ordenados.begin(), this->candidatos_ordenados.end());
+}
+
+void Eleicao::inserindo_na_lista_partidos(){
+    for (map<int, Partido>::iterator it = this->partidos.begin(); it != this->partidos.end(); it++) {
+        this->partidos_ordenados.push_back(it->second);
+    }
 }
 
 const map<int, Candidato> &Eleicao::get_candidatos() const

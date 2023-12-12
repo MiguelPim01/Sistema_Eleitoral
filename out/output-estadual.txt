@@ -1,0 +1,135 @@
+Número de vagas: 24
+
+Deputados estaduais eleitos:
+1 - NICOLAU JUNIOR (PP, 16.636 votos)
+2 - MARIA ANTÔNIA (PP, 10.485 votos)
+3 - EMERSON JARUDE (MDB, 8.540 votos)
+4 - MANOEL MORAES (PP, 8.479 votos)
+5 - GILBERTO LIRA (UNIÃO, 8.407 votos)
+6 - CLODOALDO RODRIGUES (REPUBLICANOS, 8.227 votos)
+7 - ANDRÉ DA DROGA VALE (PODE, 8.157 votos)
+8 - PEDRO LONGO (PDT, 7.732 votos)
+9 - TCHÊ (PDT, 7.390 votos)
+10 - FAGNER CALEGÁRIO (PODE, 7.112 votos)
+11 - *LUIZ GONZAGA (PSDB, 6.680 votos)
+12 - WHENDY LIMA (UNIÃO, 6.673 votos)
+13 - TADEU HASSEM (REPUBLICANOS, 6.175 votos)
+14 - ADAILTON CRUZ (PSB, 6.157 votos)
+15 - DR. MICHELLE MELO (PDT, 5.990 votos)
+16 - *EDVALDO MAGALHÃES (PC do B, 5.822 votos)
+17 - AFONSO FERNANDES (PL, 5.731 votos)
+18 - ANTONIA SALES (MDB, 5.720 votos)
+19 - TANIZIO SÁ (MDB, 5.703 votos)
+20 - CHICO VIGA (PDT, 5.601 votos)
+21 - GENE DINIZ (REPUBLICANOS, 5.512 votos)
+22 - ARLENILSON CUNHA (PL, 5.471 votos)
+23 - PABLO BREGENSE (PSD, 5.386 votos)
+24 - EDUARDO RIBEIRO (PSD, 4.810 votos)
+
+Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):
+1 - NICOLAU JUNIOR (PP, 16.636 votos)
+2 - MARIA ANTÔNIA (PP, 10.485 votos)
+3 - EMERSON JARUDE (MDB, 8.540 votos)
+4 - MANOEL MORAES (PP, 8.479 votos)
+5 - GILBERTO LIRA (UNIÃO, 8.407 votos)
+6 - CLODOALDO RODRIGUES (REPUBLICANOS, 8.227 votos)
+7 - ANDRÉ DA DROGA VALE (PODE, 8.157 votos)
+8 - PEDRO LONGO (PDT, 7.732 votos)
+9 - TCHÊ (PDT, 7.390 votos)
+10 - FAGNER CALEGÁRIO (PODE, 7.112 votos)
+11 - *LUIZ GONZAGA (PSDB, 6.680 votos)
+12 - WHENDY LIMA (UNIÃO, 6.673 votos)
+13 - TADEU HASSEM (REPUBLICANOS, 6.175 votos)
+14 - ADAILTON CRUZ (PSB, 6.157 votos)
+15 - ANTONIO PEDRO (UNIÃO, 6.004 votos)
+16 - DR. MICHELLE MELO (PDT, 5.990 votos)
+17 - NENÉM ALMEIDA (PODE, 5.976 votos)
+18 - *SGT CADMIEL BOMFIM (PSDB, 5.909 votos)
+19 - *EDVALDO MAGALHÃES (PC do B, 5.822 votos)
+20 - AFONSO FERNANDES (PL, 5.731 votos)
+21 - ANTONIA SALES (MDB, 5.720 votos)
+22 - TANIZIO SÁ (MDB, 5.703 votos)
+23 - CHICO VIGA (PDT, 5.601 votos)
+24 - MARCUS CAVALCANTE (PDT, 5.520 votos)
+
+Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:
+(com sua posição no ranking de mais votados)
+15 - ANTONIO PEDRO (UNIÃO, 6.004 votos)
+17 - NENÉM ALMEIDA (PODE, 5.976 votos)
+18 - *SGT CADMIEL BOMFIM (PSDB, 5.909 votos)
+24 - MARCUS CAVALCANTE (PDT, 5.520 votos)
+
+Eleitos, que se beneficiaram do sistema proporcional:
+(com sua posição no ranking de mais votados)
+25 - GENE DINIZ (REPUBLICANOS, 5.512 votos)
+26 - ARLENILSON CUNHA (PL, 5.471 votos)
+27 - PABLO BREGENSE (PSD, 5.386 votos)
+30 - EDUARDO RIBEIRO (PSD, 4.810 votos)
+
+Votação dos partidos e número de candidatos eleitos:
+1 - PDT - 12, 57.680 votos (56.212 nominais e 1.468 de legenda), 4 candidatos eleitos
+2 - PP - 11, 45.847 votos (43.156 nominais e 2.691 de legenda), 3 candidatos eleitos
+3 - REPUBLICANOS - 10, 44.442 votos (43.160 nominais e 1.282 de legenda), 3 candidatos eleitos
+4 - PL - 22, 44.426 votos (42.325 nominais e 2.101 de legenda), 2 candidatos eleitos
+5 - MDB - 15, 39.617 votos (38.269 nominais e 1.348 de legenda), 3 candidatos eleitos
+6 - UNIÃO - 44, 36.472 votos (32.215 nominais e 4.257 de legenda), 2 candidatos eleitos
+7 - PSD - 55, 35.491 votos (34.578 nominais e 913 de legenda), 2 candidatos eleitos
+8 - PODE - 19, 27.462 votos (25.215 nominais e 2.247 de legenda), 2 candidatos eleitos
+9 - PSB - 40, 19.038 votos (17.483 nominais e 1.555 de legenda), 1 candidato eleito
+10 - PT - 13, 17.971 votos (14.868 nominais e 3.103 de legenda), 0 candidato eleito
+11 - PSDB - 45, 17.828 votos (16.764 nominais e 1.064 de legenda), 1 candidato eleito
+12 - PROS - 90, 16.541 votos (15.450 nominais e 1.091 de legenda), 0 candidato eleito
+13 - SOLIDARIEDADE - 77, 11.424 votos (11.003 nominais e 421 de legenda), 0 candidato eleito
+14 - PATRIOTA - 51, 10.285 votos (10.165 nominais e 120 de legenda), 0 candidato eleito
+15 - PC do B - 65, 6.447 votos (6.025 nominais e 422 de legenda), 1 candidato eleito
+16 - PSOL - 50, 2.229 votos (2.116 nominais e 113 de legenda), 0 candidato eleito
+17 - CIDADANIA - 23, 963 votos (876 nominais e 87 de legenda), 0 candidato eleito
+18 - DC - 27, 563 votos (530 nominais e 33 de legenda), 0 candidato eleito
+19 - AGIR - 36, 485 votos (440 nominais e 45 de legenda), 0 candidato eleito
+20 - PV - 43, 269 votos (193 nominais e 76 de legenda), 0 candidato eleito
+21 - REDE - 18, 152 votos (0 nominal e 152 de legenda), 0 candidato eleito
+22 - PMN - 33, 138 votos (71 nominais e 67 de legenda), 0 candidato eleito
+23 - PTB - 14, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+24 - PSC - 20, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+25 - PRTB - 28, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+26 - PCO - 29, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+27 - AVANTE - 70, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+
+Primeiro e último colocados de cada partido:
+1 - PP - 11, NICOLAU JUNIOR (11122, 16.636 votos) / TENENTE JARDIM (11211, 13 votos)
+2 - MDB - 15, EMERSON JARUDE (15000, 8.540 votos) / KELLY CRISTINA (15001, 10 votos)
+3 - UNIÃO - 44, GILBERTO LIRA (44444, 8.407 votos) / SOCORRO AMORIM (44044, 39 votos)
+4 - REPUBLICANOS - 10, CLODOALDO RODRIGUES (10555, 8.227 votos) / SARGENTO MENDONÇA (10190, 73 votos)
+5 - PODE - 19, ANDRÉ DA DROGA VALE (19444, 8.157 votos) / SAVANA SANTIAGO (19192, 53 votos)
+6 - PDT - 12, PEDRO LONGO (12333, 7.732 votos) / ROGGER WINS (12247, 4 votos)
+7 - PSDB - 45, LUIZ GONZAGA (45121, 6.680 votos) / DAIANE SILVA (45011, 1 voto)
+8 - PSB - 40, ADAILTON CRUZ (40222, 6.157 votos) / RAIMUNDA QUEIROZ (40555, 16 votos)
+9 - PC do B - 65, EDVALDO MAGALHÃES (65123, 5.822 votos) / WAL (65654, 32 votos)
+10 - PL - 22, AFONSO FERNANDES (22223, 5.731 votos) / ROSE DA ENDEMIAS (22678, 29 votos)
+11 - PSD - 55, PABLO BREGENSE (55777, 5.386 votos) / KEKEL MENEZES (55556, 39 votos)
+12 - PT - 13, DANIEL ZEN (13123, 4.880 votos) / MARIA VAI COM AS OUTRAS (13444, 39 votos)
+13 - SOLIDARIEDADE - 77, SIDA DO MERCANTIL SÃO PAULO  (77987, 4.082 votos) / ANA PAULA HONORATO (77010, 37 votos)
+14 - PROS - 90, RAIMUNDINHO DA SAUDE (90000, 3.558 votos) / BRIGIDO OLIVEIRA (90444, 5 votos)
+15 - PATRIOTA - 51, LEONCIO CASTRO (51444, 2.711 votos) / UENA PAULA (51777, 3 votos)
+16 - PSOL - 50, NOVA S (50222, 623 votos) / MÔNICA DINIZ (50999, 14 votos)
+17 - CIDADANIA - 23, NENO (23777, 243 votos) / NEDELY SOUSA (23111, 1 voto)
+18 - DC - 27, MANOEL IZO (27012, 175 votos) / JOANNA AYSHA (27888, 5 votos)
+19 - PV - 43, ITAMARA SOUZA (43123, 107 votos) / ANGELINO DO PANDEIRO (43700, 86 votos)
+20 - AGIR - 36, JAQUELINE MEDEIROS (36333, 74 votos) / AMBROZIO MOURA (36200, 0 voto)
+21 - PMN - 33, PR ANTONIO ALMEIDA (33242, 53 votos) / NAZARÉ DO TACACÁ (33123, 18 votos)
+
+Eleitos, por faixa etária (na data da eleição):
+      Idade < 30: 0 (0,00%)
+30 <= Idade < 40: 6 (25,00%)
+40 <= Idade < 50: 8 (33,33%)
+50 <= Idade < 60: 5 (20,83%)
+60 <= Idade     : 5 (20,83%)
+
+Eleitos, por gênero:
+Feminino:  3 (12,50%)
+Masculino: 21 (87,50%)
+
+Total de votos válidos:    435.770
+Total de votos nominais:   411.114 (94,34%)
+Total de votos de legenda: 24.656 (5,66%)
+

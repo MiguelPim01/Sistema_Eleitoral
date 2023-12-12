@@ -20,6 +20,7 @@
 #define POS_VOTE_NR_VOTAVEL 19
 #define POS_VOTE_QTD_VOTOS 21
 
+using namespace std;
 
 bool get_flag_read_line(int cd_cargo, int cd_situacao_candidato_tot, string nm_tipo_destinacao_votos, int cargo)
 {
@@ -121,7 +122,7 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
                 data_nascimento = iso_8859_1_to_utf8(line_vector[POS_DT_NASCIMENTO]);
 
                 Candidato c(cd_cargo, cd_situacao_candidato_tot, nr_candidato, nm_urna_candidato, p,
-                    nr_federacao, cd_sit_tot_turno, cd_genero, nm_tipo_destinacao_votos);
+                    nr_federacao, cd_sit_tot_turno, cd_genero, nm_tipo_destinacao_votos,data_nascimento);
 
                 e.insere_candidato(nr_candidato, c);
                 p.add_candidato(e.get_candidato(nr_candidato), flag_cargo);
@@ -178,27 +179,31 @@ void read_arquivo_votos(string file_path, Eleicao &e, int flag_cargo)
 
             // agora line_vector contem todas as colunas de uma das linhas do arquivo
 
-            cd_cargo = stoi(line_vector[POS_CD_CARGO]);
+            cd_cargo = stoi(line_vector[POS_VOTE_CD_CARGO]);
             nr_notavel = stoi(line_vector[POS_VOTE_NR_VOTAVEL]);
             qt_votos = stoi(line_vector[POS_VOTE_QTD_VOTOS]);
 
             bool flag_read_line;
             
             if (cd_cargo == flag_cargo && !(nr_notavel == 95 || nr_notavel == 96 || nr_notavel == 97 || nr_notavel == 98)) {
-
+                
                 if (e.has_candidato(nr_notavel)) {
 
                     Candidato &c = e.get_candidato(nr_notavel);
                     Partido &p = c.get_partido();
-
-                    if (c.get_nm_tipo_destinacao_votos().compare("Válido (legenda)")){ //salvar essa variavel num tipo boleano
+                    
+                    //SALVA O "Válido (legenda)" EM UM BOLEANO, ACHO Q O PROFESSOR TINHA COMENTADO ISSO
+                    if (c.get_nm_tipo_destinacao_votos().compare("Válido (legenda)") == 0){ 
                         p.inc_votos_de_legenda(qt_votos);
+                        //cout << p.get_votos_de_legenda() << endl;
                     }
                     else {
+                        
                         p.inc_votos_nominais(qt_votos);
                         c.inc_votos_nominais(qt_votos);
+                        
                     }
-
+                    
                     flag_read_line = false;
                 }
 

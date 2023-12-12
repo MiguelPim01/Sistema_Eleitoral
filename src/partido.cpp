@@ -1,5 +1,11 @@
 #include "../headers/partido.h"
 
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <string> 
+
+
 Partido::Partido()
 {
     
@@ -29,7 +35,7 @@ void Partido::cria_lista_ordenada_candidatos()
         }
     }
 
-    std::sort(this->array_candidatos.begin(), this->array_candidatos.end());
+    //std::sort(this->array_candidatos.begin(), this->array_candidatos.end());
 }
 
 void Partido::inc_votos_nominais(int qtd_votos)
@@ -102,6 +108,57 @@ int Partido::get_votos_de_legenda()  const
 int Partido::get_qtd_cd_eleitos()  const
 {
     return this->qtd_cd_eleitos;
+}
+
+const string Partido::toString(){
+    // if (this->get_votos_totais() == 1 || this->get_votos_totais() == 0) {
+
+    //   if (this->get_votos_nominais() == 1 || this->get_votos_nominais() == 0) {
+
+    //     if (this->get_qtd_cd_eleitos() == 1 || this->get_qtd_cd_eleitos() == 0) {
+    //       return this->get_sg_partido() + " - " + (string)this->get_nr_partido() + ", " + (this->get_votos_totais()) << " voto (" + (this->get_votos_nominais())
+    //         + " nominal e " + (this->get_votos_de_legenda()) + " de legenda), " + this->get_qtd_cd_eleitos() + " candidato eleito";
+    //     }
+    //     else {
+    //       return this->get_sg_partido() + " - " + this->get_nr_partido() + ", " + this->get_votos_totais() + " voto (" + (this->get_votos_nominais())
+    //         + " nominal e " + (this->get_votos_de_legenda()) + " de legenda), " + this->get_qtd_cd_eleitos() + " candidatos eleitos";
+    //     }
+    //   }
+    //   else {
+    //     if (this->get_qtd_cd_eleitos() == 1 || this->get_qtd_cd_eleitos() == 0) {
+    //       return this->get_sg_partido() + " - " << this->get_nr_partido() + ", " + (this->get_votos_totais()) + " voto (" + (this->get_votos_nominais())
+    //         + " nominais e " + (this->get_votos_de_legenda()) + " de legenda), " + this->get_qtd_cd_eleitos() + " candidato eleito";
+    //     }
+    //     else {
+    //       return this->get_sg_partido() + " - " << this->get_nr_partido() + ", " + (this->get_votos_totais()) + " voto (" + (this->get_votos_nominais())
+    //         + " nominais e " + (this->get_votos_de_legenda()) + " de legenda), " + this->get_qtd_cd_eleitos() + " candidatos eleitos";
+    //     }
+    //   }
+    // }
+    // else {
+    //   if (this->get_votos_nominais() == 1 || this->get_votos_nominais() == 0) {
+
+    //       if (this->get_qtd_cd_eleitos() == 1 || this->get_qtd_cd_eleitos() == 0) {
+    //         return this->get_sg_partido() + " - " << this->get_nr_partido() + ", " + (this->get_votos_totais()) + " votos (" + (this->get_votos_nominais())
+    //           + " nominal e " + (this->get_votos_de_legenda()) + " de legenda), " + this->get_qtd_cd_eleitos() + " candidato eleito";
+    //       }
+    //       else {
+    //         return this->get_sg_partido() + " - " + this->get_nr_partido() + ", " + (this->get_votos_totais()) + " votos (" + (this->get_votos_nominais())
+    //           + " nominal e " + (this->get_votos_de_legenda()) + " de legenda), " + this->get_qtd_cd_eleitos() + " candidatos eleitos";
+    //       }
+    //   }
+    //   else {
+    //     if (this->get_qtd_cd_eleitos() == 1 || this->get_qtd_cd_eleitos() == 0) {
+    //       return this->get_sg_partido() + " - " + this->get_nr_partido() + ", " + (this->get_votos_totais()) + " votos (" + (this->get_votos_nominais())
+    //         + " nominais e " + (this->get_votos_de_legenda()) + " de legenda), " + this->get_qtd_cd_eleitos() + " candidato eleito";
+    //     }
+    //     else {
+    //       return this->get_sg_partido() + " - " + this->get_nr_partido() + ", " + (this->get_votos_totais()) + " votos (" + (this->get_votos_nominais())
+    //         + " nominais e " + (this->get_votos_de_legenda()) + " de legenda), " + this->get_qtd_cd_eleitos() + " candidatos eleitos";
+    //     }
+    //   }
+    // }
+    return "S";
 }
 
 Partido::~Partido()

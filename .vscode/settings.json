@@ -1,0 +1,7 @@
+{
+  "ros.distro": "humble",
+  "files.associations": {
+    "iostream": "cpp",
+    "ostream": "cpp"
+  }
+}

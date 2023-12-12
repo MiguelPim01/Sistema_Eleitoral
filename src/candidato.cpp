@@ -1,7 +1,8 @@
 #include "../headers/candidato.h"
+#include <iostream>
 
 Candidato::Candidato(const int cd_cargo, const int cd_situacao_candidato_tot, const int nr_candidato, const string &nm_urna_candidato, Partido &p,
-                 const int nr_federacao, const int cd_sit_tot_turno, const int cd_genero, const string &nm_tipo_destinacao_votos) : 
+                 const int nr_federacao, const int cd_sit_tot_turno, const int cd_genero, const string &nm_tipo_destinacao_votos, const string &data_nascimento) : 
                                                                                          cd_cargo(cd_cargo), 
                                                                                          cd_situacao_candidato_tot(cd_situacao_candidato_tot),
                                                                                          nr_candidato(nr_candidato),
@@ -10,9 +11,37 @@ Candidato::Candidato(const int cd_cargo, const int cd_situacao_candidato_tot, co
                                                                                          nr_federacao(nr_federacao),
                                                                                          cd_sit_tot_turno(cd_sit_tot_turno),
                                                                                          cd_genero(cd_genero),
-                                                                                         nm_tipo_destinacao_votos(nm_tipo_destinacao_votos)
+                                                                                         nm_tipo_destinacao_votos(nm_tipo_destinacao_votos),
+                                                                                         data_nascimento(data_nascimento)
 {
     this->votos_nominais = 0;
+}
+
+int Candidato::get_idade(const string& data_eleicao) const {
+    int dia_eleicao = stoi(data_eleicao.substr(0,2));
+    int mes_eleicao = stoi(data_eleicao.substr(3,5));
+    int ano_eleicao = stoi(data_eleicao.substr(6,10));
+
+    int dia_nascimento = stoi(this->get_data_nascimento().substr(0,2));
+    int mes_nascimento = stoi(this->get_data_nascimento().substr(3,5));
+    int ano_nascimento = stoi(this->get_data_nascimento().substr(6,10));
+
+
+    int idade = ano_eleicao - ano_nascimento;
+
+    if(mes_nascimento > mes_eleicao){
+        idade--;
+    }else if (mes_nascimento == mes_eleicao){
+        if (dia_nascimento >= dia_eleicao){
+            idade++;
+        }
+    }
+
+    return idade;
+}
+
+const string &Candidato::get_data_nascimento() const {
+    return this->data_nascimento;
 }
 
 int Candidato::get_cd_cargo()  const
@@ -79,7 +108,7 @@ bool Candidato::operator<(const Candidato &c) const
 {
     if (this->votos_nominais == c.get_votos_nominais()) {
         // comparar as datas de nascimento (devem ser comparadas na força bruta com o tipo string)
-    }
+    } 
     return (this->votos_nominais < c.get_votos_nominais());
 }
 

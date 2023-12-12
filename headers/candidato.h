@@ -20,10 +20,11 @@ class Candidato
     int cd_genero;
     string nm_tipo_destinacao_votos;
     int votos_nominais;
+    string data_nascimento;
 
 public:
     Candidato(const int cd_cargo, const int cd_situacao_candidato_tot, const int nr_candidato, const string &nm_urna_candidato, Partido &p,
-                 const int nr_federacao, const int cd_sit_tot_turno, const int cd_genero, const string &nm_tipo_destinacao_votos);
+                 const int nr_federacao, const int cd_sit_tot_turno, const int cd_genero, const string &nm_tipo_destinacao_votos, const string &data_nascimento);
     
     int get_cd_cargo()  const;
     int get_cd_situacao_cadidato_tot()  const;
@@ -34,6 +35,8 @@ public:
     int get_cd_genero()  const;
     const string &get_nm_tipo_destinacao_votos()  const;
     int get_votos_nominais()  const;
+    const string &get_data_nascimento() const;
+    int get_idade(const string& data_eleicao) const;
 
     Partido& get_partido();
 

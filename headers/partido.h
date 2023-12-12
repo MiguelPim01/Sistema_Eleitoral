@@ -5,7 +5,7 @@
 
 #include <map>
 #include <vector>
-#include <algorithm>
+
 
 using namespace std;
 
@@ -44,6 +44,7 @@ public:
     int get_votos_nominais()  const;
     int get_votos_de_legenda()  const;
     int get_qtd_cd_eleitos()  const;
+    const string toString();
 
     ~Partido();
 };
