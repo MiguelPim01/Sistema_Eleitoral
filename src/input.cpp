@@ -192,7 +192,7 @@ void read_arquivo_votos(string file_path, Eleicao &e, int flag_cargo)
             nr_notavel = stoi(line_vector[POS_VOTE_NR_VOTAVEL]);
             qt_votos = stoi(line_vector[POS_VOTE_QTD_VOTOS]);
 
-            bool flag_read_line;
+            bool flag_read_line = true;
             
             if (cd_cargo == flag_cargo && !(nr_notavel == 95 || nr_notavel == 96 || nr_notavel == 97 || nr_notavel == 98)) {
 
@@ -217,7 +217,7 @@ void read_arquivo_votos(string file_path, Eleicao &e, int flag_cargo)
                     if (e.has_partido(nr_notavel)) {
                         Partido &p = e.get_partido(nr_notavel);
 
-                        p.inc_votos_nominais(qt_votos);
+                        p.inc_votos_de_legenda(qt_votos);
                     }
 
                 }
