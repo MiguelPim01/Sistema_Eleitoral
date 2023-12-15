@@ -24,7 +24,7 @@ void Partido::add_candidato(Candidato &c, int cargo)
 void Partido::cria_lista_ordenada_candidatos()
 {
     for (std::map<int, Candidato *>::iterator it = this->candidatos.begin(); it != this->candidatos.end(); it++) {
-        if ((*it->second).get_nm_tipo_destinacao_votos().compare("Válido (legenda)")) {
+        if ((*it->second).get_nm_tipo_destinacao_votos().compare("Válido (legenda)") != 0) {
             this->array_candidatos.push_back(it->second);
         }
     }

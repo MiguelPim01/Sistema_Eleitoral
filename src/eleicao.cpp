@@ -54,6 +54,28 @@ Candidato &Eleicao::get_candidato(int key)
     return this->candidatos.at(key);
 }
 
+void Eleicao::create_candidatos_eleitos(vector<Candidato> &candidatos, int cargo)
+{
+    vector<Candidato>::iterator it;
+
+    for (it = this->candidatos_ordenados.begin(); it < this->candidatos_ordenados.end(); it++) {
+        if ((*it).is_eleito(cargo)) {
+            candidatos.push_back(*it);
+        }
+    }
+}
+
+void Eleicao::create_candidatos_nao_eleitos(vector<Candidato> &candidatos, int cargo)
+{
+    vector<Candidato>::iterator it;
+
+    for (it = this->candidatos_ordenados.begin(); it < this->candidatos_ordenados.end(); it++) {
+        if (!((*it).is_eleito(cargo))) {
+            candidatos.push_back(*it);
+        }
+    }
+}
+
 bool Eleicao::has_partido(int key) const
 {
     return (this->partidos.find(key) != this->partidos.end());

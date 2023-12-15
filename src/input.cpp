@@ -120,8 +120,16 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
                 cd_genero = stoi(line_vector[POS_CD_GENERO]);
                 data_nascimento = iso_8859_1_to_utf8(line_vector[POS_DT_NASCIMENTO]);
 
+                Genero g;
+                if (cd_genero == 2) {
+                    g = Genero::MASCULINO;
+                }
+                else {
+                    g = Genero::FEMININO;
+                }
+
                 Candidato c(cd_cargo, cd_situacao_candidato_tot, nr_candidato, nm_urna_candidato, p,
-                    nr_federacao, cd_sit_tot_turno, cd_genero, nm_tipo_destinacao_votos);
+                    nr_federacao, cd_sit_tot_turno, g, nm_tipo_destinacao_votos);
 
                 e.insere_candidato(nr_candidato, c);
                 p.add_candidato(e.get_candidato(nr_candidato), flag_cargo);
@@ -132,9 +140,11 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
 
         file.close();
     }
-    catch (ios_base::failure &e) {
-        cerr << "Houve um erro com o input" << endl;
-        cerr << e.what() << endl;
+    catch (ifstream::failure &e) {
+        if (!file.eof()) {
+            cerr << "Houve um erro com a leitura ou abertura do arquivo" << endl;
+            cerr << e.what() << endl;
+        }
     }
     catch (out_of_range &e) {
         cerr << "Tentativa de acesso a região de memória indevida" << endl;
@@ -178,7 +188,7 @@ void read_arquivo_votos(string file_path, Eleicao &e, int flag_cargo)
 
             // agora line_vector contem todas as colunas de uma das linhas do arquivo
 
-            cd_cargo = stoi(line_vector[POS_CD_CARGO]);
+            cd_cargo = stoi(line_vector[POS_VOTE_CD_CARGO]);
             nr_notavel = stoi(line_vector[POS_VOTE_NR_VOTAVEL]);
             qt_votos = stoi(line_vector[POS_VOTE_QTD_VOTOS]);
 
@@ -191,7 +201,7 @@ void read_arquivo_votos(string file_path, Eleicao &e, int flag_cargo)
                     Candidato &c = e.get_candidato(nr_notavel);
                     Partido &p = c.get_partido();
 
-                    if (c.get_nm_tipo_destinacao_votos().compare("Válido (legenda)")){ //salvar essa variavel num tipo boleano
+                    if (c.get_nm_tipo_destinacao_votos().compare("Válido (legenda)") == 0){ //salvar essa variavel num tipo boleano
                         p.inc_votos_de_legenda(qt_votos);
                     }
                     else {
@@ -216,9 +226,11 @@ void read_arquivo_votos(string file_path, Eleicao &e, int flag_cargo)
             line_vector.clear();
         }
     }
-    catch (ios_base::failure &e) {
-        cerr << "Houve um erro com o input" << endl;
-        cerr << e.what() << endl;
+    catch (ifstream::failure &e) {
+        if (!file.eof()) {
+            cerr << "Houve um erro com a leitura ou abertura do arquivo" << endl;
+            cerr << e.what() << endl;
+        }
     }
     catch (out_of_range &e) {
         cerr << "Tentativa de acesso a região de memória indevida" << endl;

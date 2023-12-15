@@ -23,6 +23,9 @@ public:
     const vector<Candidato> &get_candidatos_ordenados() const;
     const vector<Partido> &get_partidos_ordenados() const;
 
+    void create_candidatos_eleitos(vector<Candidato> &candidatos, int cargo);
+    void create_candidatos_nao_eleitos(vector<Candidato> &candidatos, int cargo);
+
     Partido &get_partido(int key);
     Candidato &get_candidato(int key);
 

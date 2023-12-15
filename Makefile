@@ -45,4 +45,4 @@ runestadual: $(EXECUTAVEL)
 
 # comando para limpeza
 clean:
-	@rm ./objects/*.o $(EXECUTAVEL) *.csv *.txt
+	@rm ./objects/*.o $(EXECUTAVEL)
