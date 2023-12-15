@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     string arquivo_votos(argv[3]);
     string data_eleicao(argv[4]);
 
-    Eleicao e;
+    Eleicao e(data_eleicao);
 
     // fazer leitura do arquivo
     read_arquivo_candidatos(arquivo_candidatos, e, flag_cargo, data_eleicao);

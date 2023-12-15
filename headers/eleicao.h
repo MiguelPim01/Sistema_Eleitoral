@@ -10,9 +10,10 @@ class Eleicao
     map<int, Partido> partidos;
     vector<Candidato> candidatos_ordenados;
     vector<Partido> partidos_ordenados;
+    string data_da_eleicao;
     
 public:
-    Eleicao();
+    Eleicao(const string &data_da_eleicao);
 
     void insere_candidato(int key, Candidato &c);
     void insere_partido(int key, Partido &p);
@@ -30,6 +31,7 @@ public:
     Partido &get_partido(int key);
     Candidato &get_candidato(int key);
     int get_quantidade_partidos() const;
+    const string &get_data_eleicao() const;
 
     bool has_partido(int key) const;
     bool has_candidato(int key) const;

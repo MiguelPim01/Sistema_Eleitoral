@@ -1,6 +1,6 @@
 #include "../headers/eleicao.h"
 
-Eleicao::Eleicao()
+Eleicao::Eleicao(const string &data_da_eleicao) : data_da_eleicao(data_da_eleicao)
 {
 
 }
@@ -89,6 +89,11 @@ void Eleicao::create_candidatos_nao_eleitos(vector<Candidato> &candidatos, int c
 int Eleicao::get_quantidade_partidos() const
 {
     return this->partidos_ordenados.size();
+}
+
+const string &Eleicao::get_data_eleicao() const
+{
+    return this->data_da_eleicao;
 }
 
 bool Eleicao::has_partido(int key) const

@@ -1,7 +1,7 @@
 #include "../headers/candidato.h"
 
 Candidato::Candidato(const int cd_cargo, const int cd_situacao_candidato_tot, const int nr_candidato, const string &nm_urna_candidato, Partido &p,
-                 const int nr_federacao, const int cd_sit_tot_turno, const Genero &cd_genero, const string &nm_tipo_destinacao_votos) : 
+                 const int nr_federacao, const int cd_sit_tot_turno, const Genero &cd_genero, const string &nm_tipo_destinacao_votos, const string &data_nascimento) : 
                                                                                          cd_cargo(cd_cargo), 
                                                                                          cd_situacao_candidato_tot(cd_situacao_candidato_tot),
                                                                                          nr_candidato(nr_candidato),
@@ -10,7 +10,8 @@ Candidato::Candidato(const int cd_cargo, const int cd_situacao_candidato_tot, co
                                                                                          nr_federacao(nr_federacao),
                                                                                          cd_sit_tot_turno(cd_sit_tot_turno),
                                                                                          cd_genero(cd_genero),
-                                                                                         nm_tipo_destinacao_votos(nm_tipo_destinacao_votos)
+                                                                                         nm_tipo_destinacao_votos(nm_tipo_destinacao_votos),
+                                                                                         data_nascimento(data_nascimento)
 {
     this->votos_nominais = 0;
 }

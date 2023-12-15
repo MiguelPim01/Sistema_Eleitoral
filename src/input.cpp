@@ -129,7 +129,7 @@ void read_arquivo_candidatos(string file_path, Eleicao &e, int flag_cargo, const
                 }
 
                 Candidato c(cd_cargo, cd_situacao_candidato_tot, nr_candidato, nm_urna_candidato, p,
-                    nr_federacao, cd_sit_tot_turno, g, nm_tipo_destinacao_votos);
+                    nr_federacao, cd_sit_tot_turno, g, nm_tipo_destinacao_votos, data_nascimento);
 
                 e.insere_candidato(nr_candidato, c);
                 p.add_candidato(e.get_candidato(nr_candidato), flag_cargo);
