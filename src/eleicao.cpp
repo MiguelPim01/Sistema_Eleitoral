@@ -24,6 +24,16 @@ void Eleicao::ordena_lista_candidatos(int cargo)
     sort(this->candidatos_ordenados.begin(), this->candidatos_ordenados.end());
 }
 
+void Eleicao::ordena_lista_partidos() 
+{
+    for (map<int, Partido>::iterator it = this->partidos.begin(); it != this->partidos.end(); it++) {
+        (it->second).cria_lista_ordenada_candidatos();
+        this->partidos_ordenados.push_back(it->second);
+    }
+
+    sort(this->partidos_ordenados.begin(), this->partidos_ordenados.end());
+}
+
 const map<int, Candidato> &Eleicao::get_candidatos() const
 {
     return this->candidatos;
@@ -74,6 +84,11 @@ void Eleicao::create_candidatos_nao_eleitos(vector<Candidato> &candidatos, int c
             candidatos.push_back(*it);
         }
     }
+}
+
+int Eleicao::get_quantidade_partidos() const
+{
+    return this->partidos_ordenados.size();
 }
 
 bool Eleicao::has_partido(int key) const

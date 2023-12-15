@@ -1,5 +1,10 @@
 #include "../headers/partido.h"
 
+bool compara_candidatos(Candidato *c1, Candidato *c2)
+{
+    return ((*c2) < (*c1));
+}
+
 Partido::Partido()
 {
     
@@ -24,12 +29,12 @@ void Partido::add_candidato(Candidato &c, int cargo)
 void Partido::cria_lista_ordenada_candidatos()
 {
     for (std::map<int, Candidato *>::iterator it = this->candidatos.begin(); it != this->candidatos.end(); it++) {
-        if ((*it->second).get_nm_tipo_destinacao_votos().compare("Válido (legenda)") != 0) {
+        if ((*it->second).get_nm_tipo_destinacao_votos().compare("Válido (legenda)")) {
             this->array_candidatos.push_back(it->second);
         }
     }
 
-    std::sort(this->array_candidatos.begin(), this->array_candidatos.end());
+    std::sort(this->array_candidatos.begin(), this->array_candidatos.end(), compara_candidatos);
 }
 
 void Partido::inc_votos_nominais(int qtd_votos)
@@ -102,6 +107,14 @@ int Partido::get_votos_de_legenda()  const
 int Partido::get_qtd_cd_eleitos()  const
 {
     return this->qtd_cd_eleitos;
+}
+
+bool Partido::operator<(const Partido &p) const
+{
+    if (this->get_votos_totais() == p.get_votos_totais()) {
+        return (p.nr_partido - this->nr_partido) < 0;
+    }
+    return (p.get_votos_totais() - this->get_votos_totais()) < 0;
 }
 
 Partido::~Partido()

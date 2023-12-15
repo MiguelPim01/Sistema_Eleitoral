@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 int get_indice(vector<Candidato> &candidatos, const Candidato &c)
 {
     int i = 0;
@@ -95,7 +97,81 @@ void candidatos_que_nao_foram_eleitos(int qtd_vagas, vector<Candidato> &candidat
     cout << endl;
 }
 
-// Relatorio 5: ()
+// Relatorio 5: (eleitos no sistema proporcional)
+void candidatos_eleitos_pelo_sistema_proporcional(int qtd_vagas, vector<Candidato> &candidatos, vector<Candidato> &candidatos_eleitos)
+{
+    cout << "Eleitos, que se beneficiaram do sistema proporcional:" << endl;
+    cout << "(com sua posição no ranking de mais votados)" << endl;
+
+    // guarda a quantidade de votos do candidato na posicao limite do numero de vagas
+    int votos_min = candidatos[qtd_vagas-1].get_votos_nominais();
+    int id;
+
+    for (const Candidato &c : candidatos_eleitos) {
+
+        id = 1 + get_indice(candidatos, c);
+
+        if (c.get_votos_nominais() < votos_min) {
+            if (c.is_federado()) {
+                cout << id << " - " << "*" << c.get_nm_urna_candidato() << " (" << c.get_partido().get_sg_partido() << ", " << c.get_votos_nominais() << " votos)" << endl;
+            }
+            else {
+                cout << id << " - " << c.get_nm_urna_candidato() << " (" << c.get_partido().get_sg_partido() << ", " << c.get_votos_nominais() << " votos)" << endl;
+            }
+        }
+    }
+    cout << endl;
+}
+
+// Relatorio 6: (total de votos)
+void total_de_votos(Eleicao &e)
+{
+    cout << "Votação dos partidos e número de candidatos eleitos:" << endl;
+
+    // ordenando a lista de partidos
+    e.ordena_lista_partidos();
+
+    int qtd_partidos = e.get_quantidade_partidos();
+
+    for (const Partido &p : e.get_partidos_ordenados()) {
+        // fazer toda aquele print com os ifs
+    }
+    cout << endl;
+}
+
+// Relatorio 7: (mais e menos votados dos partidos)
+void mais_e_menos_votados_dos_partidos(Eleicao &e, int cargo)
+{
+    cout << "Primeiro e último colocados de cada partido:" << endl;
+
+    int i = 1;
+    string vot1, vot2;
+
+    for (const Partido &p: e.get_partidos_ordenados()) {
+
+        if (p.get_array_candidatos().size() == 0) { continue; }
+
+        if (p.get_votos_nominais() != 0) {
+
+            Candidato &c_mais_votado = p.get_candidato_mais_votado();
+            Candidato &c_menos_votado = p.get_candidato_menos_votado();
+
+            vot1 = c_mais_votado.get_votos_nominais() > 1 ? "votos" : "voto";
+            vot2 = c_menos_votado.get_votos_nominais() > 1 ? "votos" : "voto";
+
+            cout << i << " - " << p.get_sg_partido() << " - " << p.get_nr_partido() << ", "; // printando partido
+
+            cout << c_menos_votado.get_nm_urna_candidato() << " (" << c_menos_votado.get_nr_candidato(); // printando candidatos
+            cout << ", " << c_menos_votado.get_votos_nominais() << " " << vot2 << ") / ";
+
+            cout << c_mais_votado.get_nm_urna_candidato() << " (" << c_mais_votado.get_nr_candidato();
+            cout << ", " << c_mais_votado.get_votos_nominais() << " " << vot1 << ")" << endl;
+        }
+
+        i++;
+    }
+    cout << endl;
+}
 
 void output_saidas(Eleicao &e, const string &data_eleicao, int flag_cargo)
 {
@@ -118,4 +194,7 @@ void output_saidas(Eleicao &e, const string &data_eleicao, int flag_cargo)
     candidatos_que_foram_eleitos(candidatos_eleitos, flag_cargo);
     candidatos_mais_votados(qtd_vagas, candidatos);
     candidatos_que_nao_foram_eleitos(qtd_vagas, candidatos, candidatos_nao_eleitos);
+    candidatos_eleitos_pelo_sistema_proporcional(qtd_vagas, candidatos, candidatos_eleitos);
+    total_de_votos(e);
+    mais_e_menos_votados_dos_partidos(e, flag_cargo);
 }

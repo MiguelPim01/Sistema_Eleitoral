@@ -45,6 +45,8 @@ public:
     int get_votos_de_legenda()  const;
     int get_qtd_cd_eleitos()  const;
 
+    bool operator<(const Partido &p) const;
+
     ~Partido();
 };
 

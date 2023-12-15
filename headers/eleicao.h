@@ -17,6 +17,7 @@ public:
     void insere_candidato(int key, Candidato &c);
     void insere_partido(int key, Partido &p);
     void ordena_lista_candidatos(int cargo);
+    void ordena_lista_partidos();
 
     const map<int, Candidato> &get_candidatos() const;
     const map<int, Partido> &get_partidos() const;
@@ -28,6 +29,7 @@ public:
 
     Partido &get_partido(int key);
     Candidato &get_candidato(int key);
+    int get_quantidade_partidos() const;
 
     bool has_partido(int key) const;
     bool has_candidato(int key) const;
