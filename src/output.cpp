@@ -7,6 +7,14 @@
 
 using namespace std;
 
+bool compara_partidos(Partido &p1, Partido &p2)
+{
+    if (p1.get_candidato_mais_votado().get_votos_nominais() == p2.get_candidato_mais_votado().get_votos_nominais()) {
+        return (p2.get_nr_partido() - p1.get_nr_partido()) < 0;
+    }
+    return (p2.get_candidato_mais_votado().get_votos_nominais() - p1.get_candidato_mais_votado().get_votos_nominais()) < 0;
+}
+
 string get_formatacao_voto(int qtd_votos)
 {
     ostringstream oss;
@@ -164,8 +172,6 @@ void votacao_partidos(Eleicao &e)
     // ordenando a lista de partidos
     e.ordena_lista_partidos();
 
-    int qtd_partidos = e.get_quantidade_partidos();
-
     int i = 1;
 
     for (const Partido &p : e.get_partidos_ordenados()) {
@@ -214,6 +220,7 @@ void mais_e_menos_votados_dos_partidos(Eleicao &e, int cargo)
 
         i++;
     }
+
     cout << endl;
 }
 
@@ -222,7 +229,8 @@ void eleitos_por_faixa_etaria(Eleicao &e, vector<Candidato> &candidatos_eleitos)
 {
     cout << "Eleitos, por faixa etária (na data da eleição):" << endl;
 
-    int vet[5];
+    int vet[5], idade;
+    int total = candidatos_eleitos.size();
 
     for (int i = 0; i < 5; i++) {
         vet[i] = 0;
@@ -232,8 +240,31 @@ void eleitos_por_faixa_etaria(Eleicao &e, vector<Candidato> &candidatos_eleitos)
 
         // deve-se calcular a data de nascimento do candidato
 
-        
+        idade = c.get_idade(e.get_data_eleicao());
+
+        if (idade < 30) {
+            vet[0]++;
+        }
+        else if (idade >= 30 && idade < 40) {
+            vet[1]++;
+        }
+        else if (idade >= 40 && idade < 50) {
+            vet[2]++;
+        }
+        else if (idade >= 50 && idade < 60) {
+            vet[3]++;
+        }
+        else if (idade >= 60) {
+            vet[4]++;
+        }
     }
+
+    cout << "      Idade < 30: " << vet[0] <<  " (" << (static_cast<double>(vet[0])/total) * 100 << "%)" << endl;
+    cout << "30 <= Idade < 40: " << vet[1] <<  " (" << (static_cast<double>(vet[1])/total) * 100 << "%)" << endl;
+    cout << "40 <= Idade < 50: " << vet[2] <<  " (" << (static_cast<double>(vet[2])/total) * 100 << "%)" << endl;
+    cout << "50 <= Idade < 60: " << vet[3] <<  " (" << (static_cast<double>(vet[3])/total) * 100 << "%)" << endl;
+    cout << "60 <= Idade     : " << vet[4] <<  " (" << (static_cast<double>(vet[4])/total) * 100 << "%)" << endl;
+    
 
     cout << endl;
 }

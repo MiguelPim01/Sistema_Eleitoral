@@ -41,7 +41,36 @@ Partido &Candidato::get_partido() const
     return *(this->p);
 }
 
-int Candidato::get_nr_federacao()  const
+int Candidato::get_idade(const string &data_atual) const
+{
+    int dia_eleicao = stoi(data_atual.substr(0,2));
+    int mes_eleicao = stoi(data_atual.substr(3,5));
+    int ano_eleicao = stoi(data_atual.substr(6,10));
+
+    int dia_nascimento = stoi(this->get_data_nascimento().substr(0,2));
+    int mes_nascimento = stoi(this->get_data_nascimento().substr(3,5));
+    int ano_nascimento = stoi(this->get_data_nascimento().substr(6,10));
+
+
+    int idade = ano_eleicao - ano_nascimento;
+
+    if(mes_nascimento > mes_eleicao){
+        idade--;
+    }else if (mes_nascimento == mes_eleicao){
+        if (dia_nascimento >= dia_eleicao){
+            idade++;
+        }
+    }
+
+    return idade;
+}
+
+const string &Candidato::get_data_nascimento() const
+{
+    return this->data_nascimento;
+}
+
+int Candidato::get_nr_federacao() const
 {
     return this->nr_federacao;
 }
@@ -81,10 +110,29 @@ bool Candidato::is_federado() const
     return this->nr_federacao != -1;
 }
 
+bool compara_nascimentos(const string &dn1, const string &dn2)
+{
+    int dia_1 = stoi(dn1.substr(0,2));
+    int mes_1 = stoi(dn1.substr(3,5));
+    int ano_1 = stoi(dn1.substr(6,10));
+
+    int dia_2 = stoi(dn2.substr(0,2));
+    int mes_2 = stoi(dn2.substr(3,5));
+    int ano_2 = stoi(dn2.substr(6,10));
+
+    if (ano_1 == ano_2) {
+        if (mes_1 == mes_2) {
+            return (dia_1 < dia_2);
+        }
+        return (mes_1 < mes_2);
+    }
+    return (ano_1 < ano_2);
+}
+
 bool Candidato::operator<(const Candidato &c) const
 {
     if (this->votos_nominais == c.get_votos_nominais()) {
-        // comparar as datas de nascimento (devem ser comparadas na força bruta com o tipo string)
+        return compara_nascimentos(this->data_nascimento, c.data_nascimento);
     }
     return (c.votos_nominais < this->votos_nominais);
 }

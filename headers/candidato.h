@@ -38,6 +38,8 @@ public:
     int get_votos_nominais()  const;
 
     Partido& get_partido() const;
+    int get_idade(const string &data_atual) const;
+    const string &get_data_nascimento() const;
 
     void inc_votos_nominais(int qtd_votos);
     bool is_eleito(int cargo) const;
