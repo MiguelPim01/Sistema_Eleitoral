@@ -114,6 +114,13 @@ int Partido::get_qtd_cd_eleitos()  const
     return this->qtd_cd_eleitos;
 }
 
+ostream &operator<<(ostream &os, const Partido &p)
+{
+    os << p.get_sg_partido() << " - " << p.get_nr_partido(); // vai printar apenas, por exemplo: PSDB - 45
+
+    return os;
+}
+
 const string Partido::toString(){
     // if (this->get_votos_totais() == 1 || this->get_votos_totais() == 0) {
 

@@ -4,6 +4,11 @@
 #include <iostream>
 #include <algorithm>
 
+const int get_posicao_candidato(vector<Candidato> lista, const Candidato cand);
+const vector<Candidato> create_lista_candidatos_eleitos(Eleicao &e, int flag_cargo);
+const vector<Candidato> create_lista_candidatos_nao_eleitos(Eleicao &e, int flag_cargo);
+
+
 void output_saidas(Eleicao &e, const string &data_eleicao, int flag_cargo)
 {   
     //Acho que isso aqui da pra mudar pq eu to ordenando logo mais abaixo
@@ -160,7 +165,7 @@ void numero_eleitos(vector<Candidato> lista){
 }
 
 //retornando a posição do candidato na lista de candidatos
-const int get_posicao_candidato(vector<Candidato> lista, Candidato cand) {
+const int get_posicao_candidato(vector<Candidato> lista, const Candidato cand) {
 
     int index = distance(lista.begin(), find(lista.begin(), lista.end(), cand));
 
