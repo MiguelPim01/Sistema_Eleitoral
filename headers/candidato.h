@@ -43,6 +43,7 @@ public:
     bool is_federado() const;
 
     bool operator<(const Candidato &c) const;
+    bool operator==(const Candidato &c) const;
 
     ~Candidato();
 };

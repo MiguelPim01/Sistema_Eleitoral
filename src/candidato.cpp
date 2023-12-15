@@ -85,7 +85,12 @@ bool Candidato::operator<(const Candidato &c) const
     if (this->votos_nominais == c.get_votos_nominais()) {
         // comparar as datas de nascimento (devem ser comparadas na força bruta com o tipo string)
     }
-    return (this->votos_nominais < c.get_votos_nominais());
+    return (c.votos_nominais < this->votos_nominais);
+}
+
+bool Candidato::operator==(const Candidato &c) const
+{
+    return this->nr_candidato == c.nr_candidato;
 }
 
 Candidato::~Candidato()
