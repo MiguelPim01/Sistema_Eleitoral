@@ -12,7 +12,7 @@ bool compara_partidos(Partido &p1, Partido &p2)
     if (p1.get_candidato_mais_votado().get_votos_nominais() == p2.get_candidato_mais_votado().get_votos_nominais()) {
         return (p2.get_nr_partido() - p1.get_nr_partido()) < 0;
     }
-    return (p1.get_candidato_mais_votado().get_votos_nominais() - p2.get_candidato_mais_votado().get_votos_nominais()) < 0;
+    return p2.get_candidato_mais_votado().get_votos_nominais() < p1.get_candidato_mais_votado().get_votos_nominais();
 }
 
 string get_formatacao_voto(int qtd_votos)
@@ -172,14 +172,6 @@ void votacao_partidos(Eleicao &e)
     // ordenando a lista de partidos
     e.ordena_lista_partidos();
 
-    for (auto &[nr, p] : e.get_partidos()) {
-        cout << p.get_sg_partido() << endl;
-
-        for (const Candidato *c : p.get_array_candidatos()) {
-            cout << "\t" <<  c->get_nm_urna_candidato() << " " << c->get_votos_nominais() << endl;
-        }
-    }
-
     int i = 1;
 
     for (const Partido &p : e.get_partidos_ordenados()) {
@@ -205,7 +197,17 @@ void mais_e_menos_votados_dos_partidos(Eleicao &e, int cargo)
     int i = 1;
     string vot1, vot2;
 
-    for (const Partido &p: e.get_partidos_ordenados()) {
+    vector<Partido> lista_part;
+
+    for (const Partido &p : e.get_partidos_ordenados()) {
+        if (p.get_array_candidatos().size() != 0) {
+            lista_part.push_back(p);
+        }
+    }
+
+    sort(lista_part.begin(), lista_part.end(), compara_partidos);
+
+    for (const Partido &p: lista_part) {
 
         if (p.get_array_candidatos().size() == 0) { continue; }
 
@@ -219,10 +221,10 @@ void mais_e_menos_votados_dos_partidos(Eleicao &e, int cargo)
 
             cout << i << " - " << p.get_sg_partido() << " - " << p.get_nr_partido() << ", "; // printando partido
 
-            cout << c_menos_votado.get_nm_urna_candidato() << " (" << c_menos_votado.get_nr_candidato(); // printando candidatos
+            cout << c_menos_votado.get_nm_urna_candidato() << " (" << to_string(c_menos_votado.get_nr_candidato()); // printando candidatos
             cout << ", " << c_menos_votado.get_votos_nominais() << " " << vot2 << ") / ";
 
-            cout << c_mais_votado.get_nm_urna_candidato() << " (" << c_mais_votado.get_nr_candidato();
+            cout << c_mais_votado.get_nm_urna_candidato() << " (" << to_string(c_mais_votado.get_nr_candidato());
             cout << ", " << c_mais_votado.get_votos_nominais() << " " << vot1 << ")" << endl;
         }
 
@@ -295,8 +297,8 @@ void eleitos_por_genero(vector<Candidato> &candidatos_eleitos)
 
     int qtd_eleitos = candidatos_eleitos.size();
 
-    cout << "Feminino: " << qtd_mulheres << " " << (static_cast<double>(qtd_mulheres) / qtd_eleitos)*100 << "%" << endl;
-    cout << "Masculino: " << qtd_homens << " " << (static_cast<double>(qtd_homens) / qtd_eleitos)*100 << "%" << endl;
+    cout << "Feminino: " << qtd_mulheres << " " << "(" << (static_cast<double>(qtd_mulheres) / qtd_eleitos)*100 << "%)" << endl;
+    cout << "Masculino: " << qtd_homens << " "  << "(" << (static_cast<double>(qtd_homens) / qtd_eleitos)*100 << "%)" << endl;
 
     cout << endl;
 }
