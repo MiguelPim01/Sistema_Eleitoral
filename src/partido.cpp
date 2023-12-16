@@ -112,7 +112,7 @@ int Partido::get_qtd_cd_eleitos()  const
 bool Partido::operator<(const Partido &p) const
 {
     if (this->get_votos_totais() == p.get_votos_totais()) {
-        return (p.nr_partido - this->nr_partido) < 0;
+        return (this->nr_partido - p.nr_partido) < 0;
     }
     return (p.get_votos_totais() - this->get_votos_totais()) < 0;
 }

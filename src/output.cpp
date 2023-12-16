@@ -12,7 +12,7 @@ bool compara_partidos(Partido &p1, Partido &p2)
     if (p1.get_candidato_mais_votado().get_votos_nominais() == p2.get_candidato_mais_votado().get_votos_nominais()) {
         return (p2.get_nr_partido() - p1.get_nr_partido()) < 0;
     }
-    return (p2.get_candidato_mais_votado().get_votos_nominais() - p1.get_candidato_mais_votado().get_votos_nominais()) < 0;
+    return (p1.get_candidato_mais_votado().get_votos_nominais() - p2.get_candidato_mais_votado().get_votos_nominais()) < 0;
 }
 
 string get_formatacao_voto(int qtd_votos)
@@ -171,6 +171,14 @@ void votacao_partidos(Eleicao &e)
 
     // ordenando a lista de partidos
     e.ordena_lista_partidos();
+
+    for (auto &[nr, p] : e.get_partidos()) {
+        cout << p.get_sg_partido() << endl;
+
+        for (const Candidato *c : p.get_array_candidatos()) {
+            cout << "\t" <<  c->get_nm_urna_candidato() << " " << c->get_votos_nominais() << endl;
+        }
+    }
 
     int i = 1;
 

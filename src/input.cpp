@@ -29,7 +29,7 @@ bool get_flag_read_line(int cd_cargo, int cd_situacao_candidato_tot, string nm_t
             return true;
         }
         else {
-            if (nm_tipo_destinacao_votos.compare("Válido (legenda)")) {
+            if (nm_tipo_destinacao_votos.compare("Válido (legenda)") == 0) {
                 return true;
             }
         }
