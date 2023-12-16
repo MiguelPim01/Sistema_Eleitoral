@@ -61,12 +61,12 @@ Candidato &Partido::get_candidato(int key) const
 
 Candidato &Partido::get_candidato_mais_votado() const
 {
-    return *this->array_candidatos.front();
+    return *this->array_candidatos.back();
 }
 
 Candidato &Partido::get_candidato_menos_votado() const
 {
-    return *this->array_candidatos.back();
+    return *this->array_candidatos.front();
 }
 
 int Partido::get_votos_totais() const

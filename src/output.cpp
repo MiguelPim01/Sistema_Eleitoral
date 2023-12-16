@@ -10,7 +10,7 @@ using namespace std;
 bool compara_partidos(Partido &p1, Partido &p2)
 {
     if (p1.get_candidato_mais_votado().get_votos_nominais() == p2.get_candidato_mais_votado().get_votos_nominais()) {
-        return (p2.get_nr_partido() - p1.get_nr_partido()) < 0;
+        return p2.get_nr_partido() < p1.get_nr_partido();
     }
     return p2.get_candidato_mais_votado().get_votos_nominais() < p1.get_candidato_mais_votado().get_votos_nominais();
 }
@@ -221,11 +221,11 @@ void mais_e_menos_votados_dos_partidos(Eleicao &e, int cargo)
 
             cout << i << " - " << p.get_sg_partido() << " - " << p.get_nr_partido() << ", "; // printando partido
 
-            cout << c_menos_votado.get_nm_urna_candidato() << " (" << to_string(c_menos_votado.get_nr_candidato()); // printando candidatos
-            cout << ", " << c_menos_votado.get_votos_nominais() << " " << vot2 << ") / ";
-
             cout << c_mais_votado.get_nm_urna_candidato() << " (" << to_string(c_mais_votado.get_nr_candidato());
-            cout << ", " << c_mais_votado.get_votos_nominais() << " " << vot1 << ")" << endl;
+            cout << ", " << c_mais_votado.get_votos_nominais() << " " << vot1 << ") / ";
+
+            cout << c_menos_votado.get_nm_urna_candidato() << " (" << to_string(c_menos_votado.get_nr_candidato()); // printando candidatos
+            cout << ", " << c_menos_votado.get_votos_nominais() << " " << vot2 << ")" << endl;
         }
 
         i++;
