@@ -297,8 +297,8 @@ void eleitos_por_genero(vector<Candidato> &candidatos_eleitos)
 
     int qtd_eleitos = candidatos_eleitos.size();
 
-    cout << "Feminino: " << qtd_mulheres << " " << "(" << (static_cast<double>(qtd_mulheres) / qtd_eleitos)*100 << "%)" << endl;
-    cout << "Masculino: " << qtd_homens << " "  << "(" << (static_cast<double>(qtd_homens) / qtd_eleitos)*100 << "%)" << endl;
+    cout << "Feminino:  " << qtd_mulheres << " " << "(" << (static_cast<double>(qtd_mulheres) / qtd_eleitos)*100 << "%)" << endl;
+    cout << "Masculino:  " << qtd_homens << " "  << "(" << (static_cast<double>(qtd_homens) / qtd_eleitos)*100 << "%)" << endl;
 
     cout << endl;
 }

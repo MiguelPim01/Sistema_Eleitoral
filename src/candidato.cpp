@@ -54,12 +54,13 @@ int Candidato::get_idade(const string &data_atual) const
 
     int idade = ano_eleicao - ano_nascimento;
 
-    if(mes_nascimento > mes_eleicao){
-        idade--;
-    }else if (mes_nascimento == mes_eleicao){
-        if (dia_nascimento >= dia_eleicao){
-            idade++;
+    if (mes_nascimento == mes_eleicao) {
+        if (dia_nascimento > dia_eleicao) {
+            idade--;
         }
+    }
+    else if (mes_nascimento > mes_eleicao) {
+        idade--;
     }
 
     return idade;
